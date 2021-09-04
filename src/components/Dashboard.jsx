@@ -8,11 +8,11 @@ import DashNewNote from './DashNewNote';
 
 function Dashboard(props) {
 
-    const [files, setFiles] = useState([])                  //setting state and variable for the files
-    const [filter, setFilter] = useState("")                //setting state and variable for the filter function
-    const [search, setSearch] = useState("")                //setting state and variable for the search function
-
-    useEffect(() => {                                       //fetching backend data
+    const [files, setFiles] = useState([])                      //setting state and variable for the files
+    const [filter, setFilter] = useState("")                    //setting state and variable for the filter function
+    const [search, setSearch] = useState("")                    //setting state and variable for the search function
+    
+    useEffect(() => {                                           //fetching backend data
         const url = "https://zatta1.herokuapp.com/api/notes"
         fetch(url)
         .then((res) => {return res.json()})
