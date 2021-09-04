@@ -1,18 +1,16 @@
-import React from 'react'
+import React,{ useEffect } from 'react'
 import { modules, formats } from '../quill-options/QuillOptions.js'
-import Toolbar from '../quill-options/QuillTestToolbar.js'
-
+import axios from 'axios'
 
 import ReactQuill, { Quill } from 'react-quill'
 import 'react-quill/dist/quill.bubble.css'
 import 'react-quill/dist/quill.snow.css'
 
 
-function QuillEditor(props) {
+function QuillEditor({ notes, setNotes }) {
     
     const handleChange = (content, delta, source, editor) => {
-        props.setNotesInput(`${content}`)
-        console.log(content, props.notesInput)
+        setNotes(`${content}`)
     }
     
     // var quill = new Quill(editor, {
@@ -28,7 +26,7 @@ function QuillEditor(props) {
                 modules={modules} 
                 formats={formats} 
                 placeholder='Enter Notes Here...'
-                value={props.notesInput} 
+                value={notes} 
                 onChange={handleChange} 
             />
         </div>

@@ -1,3 +1,8 @@
+.main-note-pg {
+    margin: 20px
+}
+
+
 .notes-header {
     display: flex;
     flex-direction: row;
