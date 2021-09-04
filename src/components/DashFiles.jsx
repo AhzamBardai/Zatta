@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import fileImage from '../images/file.png'
 
 function DashFiles({ files, filter }) {
     return (
@@ -15,6 +16,7 @@ function DashFiles({ files, filter }) {
                     return (
                         <div>
                             <Link to= {`/${filter.subject}`} key= {filter.subject}>
+                                <img src= {fileImage} alt= {filter.subject} width= "75px" height= "100%"/>
                                 <button>{filter.subject}</button>
                             </Link>
                         </div>

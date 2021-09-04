@@ -3,7 +3,7 @@ import React from 'react';
 function DashNewNote(props) {
     return (
         <div>
-            new note button
+            <button>New Note</button>
         </div>
     );
 }

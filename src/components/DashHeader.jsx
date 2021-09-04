@@ -7,9 +7,14 @@ function DashHeader({ search, setSearch, match }) {
     }
 
     function handleSubmit (e) {
+        if (search == "") {
+            e.preventDefault()
+        } else {
         match.history.push(`/${search}`)
         setSearch("")
+        }
     }
+    
     return (
         <div>
             <h2>Dashboard Header</h2>
