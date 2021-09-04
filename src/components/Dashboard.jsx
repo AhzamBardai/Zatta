@@ -11,7 +11,7 @@ function Dashboard(props) {
     const [files, setFiles] = useState([])                      //setting state and variable for the files
     const [filter, setFilter] = useState("")                    //setting state and variable for the filter function
     const [search, setSearch] = useState("")                    //setting state and variable for the search function
-    
+
     useEffect(() => {                                           //fetching backend data
         const url = "https://zatta1.herokuapp.com/api/notes"
         fetch(url)
@@ -23,24 +23,36 @@ function Dashboard(props) {
         .catch(console.error)
     }, [])
 
+    // function newNote() {
+    //     axios.put(`http://localhost:4000/gifs/${currentlyEditing}`, {
+    //         name,
+    //         url
+    //       })
+    //       .then((resp) => {
+    //         console.log(resp)
+    //         addPictures(resp.data)
+    //         $('#modal-edit').modal('close')
+    //       })
+    // }
+
 
     return (
         <div>
 
             {/* pass in the dashbopard header */}
-            <Route  render= {(routerProps) => (
-                <DashHeader
-                    search = {search}
-                    setSearch= {setSearch}
-                    match= {routerProps} />
-            )} />
+                <DashHeader />
 
             {/* search bar / file filter */}
-            <DashFilter 
-                files = {files}
-                setFilter= {setFilter}
-                filter= {filter}
-            />
+            <Route  render= {(routerProps) => (
+                <DashFilter 
+                    files = {files}
+                    setFilter= {setFilter}
+                    filter= {filter}
+                    search = {search}
+                    setSearch= {setSearch}
+                    match= {routerProps}
+                />
+            )} />
 
             {/* new file button */}
             <DashNewNote />
