@@ -25,20 +25,14 @@ function DashSearch({ search, setSearch, match, setFilter, filter }) {
 
     return (
         <div>
-            <InputGroup className="mb-3">
-                <form onClick= {handleSubmit}>
-                    <FormControl placeholder="Search Notes" type= "text" onChange= {handleChange} value= {search} />
-                    <Button type= "submit"  variant="outline-secondary">Search</Button>
-                </form>
-            </InputGroup>
-            <InputGroup className="mb-3">
+
+            <InputGroup style={{display: "flex", justifyContent: "right"}} className="mb-3">
                 <form>
                     <FormControl placeholder="Filter Notes" value={filter} onChange={e => {setFilter(e.target.value)}} />
-                    <Button type= "submit" onClick={resetFilter} variant="outline-secondary">Reset</Button>
+                    <Button style={{float: "right"}} type= "submit" onClick={resetFilter} variant="outline-secondary">Reset</Button>
                 </form>
             </InputGroup>
-            {/* <input type= "text" placeholder= "Filter Search" value={filter} onChange={e => {setFilter(e.target.value)}}/> */}
-            {/* <button type= "submit" onClick={resetFilter} >Reset</button> */}
+
         </div>
 
     );

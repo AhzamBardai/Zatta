@@ -37,7 +37,9 @@ function DashNewNote(props) {
     return (
         
         <div>
-            <Button onClick={openModal} variant="outline-secondary">New Note</Button>
+            <div style={{display: "flex", justifyContent: "right"}}>
+                <Button style={{display: "flex", justifyContent: "right"}} onClick={openModal} variant="outline-secondary">New Note</Button>
+            </div>
             <div className= "modalDiv">
                 <Modal isOpen= {modal} onRequestClose={() => setModal(false)} style={modalStyle}>
                     <div style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}}>
@@ -45,8 +47,8 @@ function DashNewNote(props) {
                         <CloseButton onClick={closeModal}/>
                     </div>
                     <InputGroup className="mb-3">
-                        <FormControl placeholder="Enter New Note Name" style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}}/>
-                        <Button type= "submit"  variant="outline-secondary">Search</Button>
+                        <FormControl placeholder="Enter Note Name" style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}}/>
+                        <Button type= "submit"  variant="outline-secondary">Create</Button>
                     </InputGroup>                
                 </Modal>
             </div>

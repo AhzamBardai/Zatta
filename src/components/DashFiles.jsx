@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import fileImage from '../images/file.png'
+import '../App.css'
 
 function DashFiles({ files, filter }) {
     return (
         <div>
-            <section>
+            <section style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center", marginLeft: "20%", marginRight: "20%"}}>
                 {files.filter((files) => {
                     if (filter == "") {
                         return files.subject
@@ -15,10 +16,12 @@ function DashFiles({ files, filter }) {
                 }).map(filter => {
                     return (
                         <div>
-                            <Link to= {`/${filter.subject}`} key= {filter.subject} style={{textDecoration:"none",color: "black", display: "flex", flexDirection:"column"}}>
-                                <img src= {fileImage} alt= {filter.subject} width= "60px" height= "100%"/>
-                                {filter.subject}
-                            </Link>
+                            <div>
+                                <Link to= {`/${filter.subject}`} key= {filter.subject} style={{display: "flex", flexDirection: "column", margin: "20px"}}>
+                                    <img src= {fileImage} alt= {filter.subject} width= "60px" height= "100%"/>
+                                    {filter.subject}
+                                </Link>
+                            </div>
                         </div>
                     )
                 })

@@ -23,18 +23,6 @@ function Dashboard(props) {
         .catch(console.error)
     }, [])
 
-    // function newNote() {
-    //     axios.put(`http://localhost:4000/gifs/${currentlyEditing}`, {
-    //         name,
-    //         url
-    //       })
-    //       .then((resp) => {
-    //         console.log(resp)
-    //         addPictures(resp.data)
-    //         $('#modal-edit').modal('close')
-    //       })
-    // }
-
 
     return (
         <div>
@@ -43,6 +31,7 @@ function Dashboard(props) {
                 <DashHeader />
 
             {/* search bar / file filter */}
+            
             <Route  render= {(routerProps) => (
                 <DashFilter 
                     files = {files}
