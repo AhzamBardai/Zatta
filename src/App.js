@@ -6,8 +6,9 @@ import axios from 'axios'
 import './App.css'
 import Landing from './components/Landing'
 import Navigation from './components/Navigation';
-import Login from './components/Login';
 import Footer from './components/Footer';
+import { Route , Switch } from 'react-router-dom'
+import Login from './components/Login';
 
 function App() {
 
@@ -33,10 +34,20 @@ function App() {
 
       <Route exact path = '/notes/:id' component={(routerProps) => <MainApp note={routerProps.match.params.id} /> } />
     <div class='bg-gray-50' >
-      <Login/>
-      <Navigation/>
-     <Landing/>
-     <Footer/>
+      
+      
+    <Switch>
+    <Route exact path="/Login" component ={Login}/>
+    
+    
+   
+    
+    <Landing/>
+    
+    </Switch>
+    
+    
+     
     </div>
     </div>
   );

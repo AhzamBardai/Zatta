@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/navbar.css'
-
+import Navigation from './Navigation';
+import Footer from './Footer';
 
 
 
@@ -9,6 +10,7 @@ function Landing(props) {
 
       return (
             <div className='bg-gray-50'>
+              <Navigation/>
             
 <div class="bg-gray-50 dark:bg-gray-800 flex relative z-20 items-center overflow-hidden">
     <div class="container mx-auto px-6 flex relative py-16 mt-10">
@@ -85,6 +87,7 @@ function Landing(props) {
         </p>
     </div>
 </div>
+<Footer/>
 
   
   
