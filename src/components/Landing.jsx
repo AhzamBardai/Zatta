@@ -10,6 +10,7 @@ function Landing(props) {
 
       return (
             <div className='bg-gray-50'>
+              {/* Navigation Component */}
               <Navigation/>
             
 <div class="bg-gray-50 dark:bg-gray-800 flex relative z-20 items-center overflow-hidden">
@@ -32,10 +33,10 @@ function Landing(props) {
         </div>
     </div>
 </div>
-
-
+ {/* How it works section */}
   <h1 class="mt-32 text-center text-5xl text-black-600 font-bold mb-10">How it works</h1>
 
+{/* Box 1 */}
 <div class="sm:flex flex-wrap justify-center items-center text-center gap-8 mb-10 mt-10">
   
     <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 px-4 py-4 bg-white mt-6  shadow-lg rounded-lg dark:bg-gray-800 transform hover:scale-110 transition duration-500">
@@ -54,6 +55,7 @@ function Landing(props) {
         Dummy Text for the reasons of how the applicaiton works
         </p>
     </div>
+    {/* Box 2 */}
     <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 px-4 py-4  mt-6 bg-white shadow-lg rounded-lg dark:bg-gray-800 transform hover:scale-110 transition duration-500">
         <div class="flex-shrink-0">
             <div class="flex items-center mx-auto justify-center h-12 w-12 rounded-md bg-black text-white">
@@ -70,6 +72,7 @@ function Landing(props) {
         Dummy Text for the reasons of how the applicaiton works
         </p>
     </div>
+    {/* Box 3 */}
     <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 mt-6  px-4 py-4 bg-white shadow-lg rounded-lg dark:bg-gray-800 transform hover:scale-110 transition duration-500">
         <div class="flex-shrink-0">
             <div class="flex items-center mx-auto justify-center h-12 w-12 rounded-md bg-black text-white">
@@ -87,6 +90,7 @@ function Landing(props) {
         </p>
     </div>
 </div>
+{/* Footer Component */}
 <Footer/>
 
   

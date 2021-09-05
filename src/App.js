@@ -5,8 +5,6 @@ import MainApp from './components/Main App/MainApp';
 import axios from 'axios'
 import './App.css'
 import Landing from './components/Landing'
-import Navigation from './components/Navigation';
-import Footer from './components/Footer';
 import { Route , Switch } from 'react-router-dom'
 import Login from './components/Login';
 
