@@ -22,7 +22,6 @@ function QuillEditor({ notes, setNotes }) {
     return (
         <div className='quill-editor'>
             <ReactQuill 
-                theme='snow' 
                 modules={modules} 
                 formats={formats} 
                 placeholder='Enter Notes Here...'

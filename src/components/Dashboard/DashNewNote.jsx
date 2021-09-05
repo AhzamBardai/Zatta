@@ -55,7 +55,7 @@ function DashNewNote(props) {
         
         <div>
             <div style={{display: "flex", justifyContent: "center"}}>
-                <Button style={{display: "flex", justifyContent: "right"}} onClick={openModal} variant="outline-secondary">New Note</Button>
+                <Button style={{display: "flex", justifyContent: "right"}} onClick={openModal} variant="primary">New Note</Button>
             </div>
             <div className= "modalDiv">
                 <Modal isOpen= {modal} onRequestClose={() => setModal(false)} style={modalStyle}>

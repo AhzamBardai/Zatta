@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import fileImage from '../../images/file.png'
+import './Dashboard.css'
 
 function DashFiles({ files, filter }) {
     return (
-        <div>
-            <section style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center", marginLeft: "20%", marginRight: "20%"}}>
+        <div className='dash-files-container'>
+            <section className='dash-files-box'>
                 {files.filter((files) => {
                     if (filter === "") {
                         return files.subject
@@ -14,13 +15,13 @@ function DashFiles({ files, filter }) {
                     } else return null 
                 }).map(filter => {
                     return (
-                        <div>
-                            <div>
-                                <Link to= {`/notes/${filter._id}`} key= {filter.subject} style={{display: "flex", flexDirection: "column", margin: "20px"}}>
-                                    <img src= {fileImage} alt= {filter.subject} width= "60px" height= "100%"/>
-                                    {filter.subject}
-                                </Link>
-                            </div>
+                        <div className='dash-files'>
+                            <Link to= {`/notes/${filter._id}`} key= {filter.subject} className='dash-file-link'>
+                                <div className='dash-card'>
+                                        <img src= {fileImage} alt= {filter.subject} width= "60px" height= "100%"/>
+                                        <span>{filter.subject}</span>
+                                </div>
+                            </Link>
                         </div>
                     )
                 })
