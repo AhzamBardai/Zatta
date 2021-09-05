@@ -3,8 +3,6 @@ import { modules, formats } from '../quill-options/QuillOptions.js'
 import axios from 'axios'
 
 import ReactQuill, { Quill } from 'react-quill'
-import 'react-quill/dist/quill.bubble.css'
-import 'react-quill/dist/quill.snow.css'
 
 
 function QuillEditor({ notes, setNotes }) {
