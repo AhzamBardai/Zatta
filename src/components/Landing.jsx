@@ -14,22 +14,24 @@ function Landing(props) {
               <Navigation/>
             
 <div class="bg-gray-50 dark:bg-gray-800 flex relative z-20 items-center overflow-hidden">
-    <div class="container mx-auto px-6 flex relative py-16 mt-10">
+    <div class="container mx-auto px-6 flex relative py-8 mt-10">
         <div class="sm:w-2/3 lg:w-2/5 flex flex-col relative z-20">
-       
-            <h1 class="text-6xl sm:text-8xl font-black flex flex-col leading-none dark:text-white text-black">
+        {/* Heading Text*/}
+            <h1 class="text-6xl sm:text-8xl font-bold flex flex-col  dark:text-white text-black">
                 Take Notes
-                <span class="text-3xl sm:text-7xl text-black">
-                    With Ease
+                <span class="text-3xl sm:text-7xl mt-4 text-black">
+                With Ease 
                 </span>
             </h1>
-            <p class="text-lg sm:text-base md:text-2xl text-gray-700 dark:text-white mt-10">
+            {/* Paragraph Description */}
+            <p class="text-lg sm:text-base md:text-2xl text-gray-700 dark:text-white mt-8">
             Zatta is a breathtaking note taking platform, allowing users to log in to their respective accounts write new, access, edit, save their notes. Anyone wanting to write notes and having them saved forever for them to refer back to later,will be in perfect line of our use case.
             </p>
             
         </div>
+        {/* Image Section*/}
         <div class=" hidden sm:block sm:w-1/3 lg:w-3/5 relative">
-            <img src="https://www.datocms-assets.com/31864/1603288258-macbook-clay-black-white-frontal-8-psd-2x-1.jpg?auto=format" class=" w-fmax-w-xs md:max-w-sm m-auto w-full"/>
+            <img src="https://www.datocms-assets.com/31864/1603288258-macbook-clay-black-white-frontal-8-psd-2x-1.jpg?auto=format" class=" ml-4 p-4 rounded-md w-full"/>
         </div>
     </div>
 </div>

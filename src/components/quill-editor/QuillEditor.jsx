@@ -18,7 +18,7 @@ function QuillEditor({ notes, setNotes }) {
     // });
 
     return (
-        <div className='quill-editor'>
+        <div className='quill-editor '>
             <ReactQuill 
                 modules={modules} 
                 formats={formats} 

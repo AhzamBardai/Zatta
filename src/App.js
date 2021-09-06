@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { Route } from 'react-router-dom'
 import Dashboard from './components/Dashboard/Dashboard.jsx'
 import MainApp from './components/Main App/MainApp';
 import axios from 'axios'
@@ -7,6 +6,7 @@ import './App.css'
 import Landing from './components/Landing'
 import { Route , Switch } from 'react-router-dom'
 import Login from './components/Login';
+import Signup from './components/Signup.jsx';
 
 function App() {
 
@@ -34,15 +34,13 @@ function App() {
     <div class='bg-gray-50' >
       
       
-    <Switch>
-    <Route exact path="/Login" component ={Login}/>
     
+    <Route exact path="/Login" component ={Login}/>
+    <Route exact path="/Signup" component ={Signup}/>
+    <Route exact path="/" component={Landing}/>
+
     
    
-    
-    <Landing/>
-    
-    </Switch>
     
     
      
