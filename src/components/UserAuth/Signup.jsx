@@ -5,7 +5,7 @@ function Signup(props) {
             <div>
                   <div class="flex flex-col h-screen bg-gray-100">
     
-    <div class="grid place-items-center mx-2 my-20 sm:my-auto">
+    <div class="grid place-items-center ">
         
         <div class="w-11/12 p-12 sm:w-8/12 md:w-6/12 lg:w-5/12 2xl:w-4/12 
             px-6 py-10 sm:px-10 sm:py-6 sm:mt-20
@@ -18,15 +18,8 @@ function Signup(props) {
 
             <form class="mt-10" method="POST">
                 
-                <label for="email" class="block text-xs font-semibold text-gray-600 uppercase">First Name</label>
-                <input id="username" type="name" name="first name" placeholder="First Name" autocomplete="name"
-                    class="block w-full py-3 px-2 mt-2 
-                    text-gray-800 appearance-none 
-                    border-solid border-2 rounded-2xl border-gray-100
-                    focus:text-gray-500 focus:outline-none focus:border-gray-200 mb-2"
-                    required />
-                <label for="email" class="block text-xs font-semibold text-gray-600 uppercase">Last Name</label>
-                <input id="username" type="email" name="last name" placeholder="Last Name" autocomplete="name"
+                <label for="name" class="block text-xs font-semibold text-gray-600 uppercase">Full Name</label>
+                <input id="username" type="name" name="first name" placeholder="First & Last Name" autocomplete="name"
                     class="block w-full py-3 px-2 mt-2 
                     text-gray-800 appearance-none 
                     border-solid border-2 rounded-2xl border-gray-100
@@ -39,8 +32,8 @@ function Signup(props) {
                     border-solid border-2 rounded-2xl border-gray-100
                     focus:text-gray-500 focus:outline-none focus:border-gray-200 mb-2"
                     required />
-                <label for="email" class="block text-xs font-semibold text-gray-600 uppercase mt-2">Username</label>
-                <input id="username" type="email" name="username" placeholder="Username" autocomplete="username"
+                <label for="username" class="block text-xs font-semibold text-gray-600 uppercase mt-2">Username</label>
+                <input id="username" type="text" name="username" placeholder="Username" autocomplete="username"
                     class="block w-full py-3 px-2 mt-2 
                     text-gray-800 appearance-none 
                     border-solid border-2 rounded-2xl border-gray-100

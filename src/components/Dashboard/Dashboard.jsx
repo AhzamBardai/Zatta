@@ -4,7 +4,6 @@ import DashFilter from './DashFilter';
 import DashFiles from './DashFiles';
 import DashNewNote from './DashNewNote';
 import userStore  from '../Users/GetUsers.js';
-import axios from 'axios';
 
 function Dashboard({ history }) {
 
@@ -17,7 +16,6 @@ function Dashboard({ history }) {
     useEffect(() => {
         const arr = notes.filter(item => item.author === currentUser[0]._id)
         console.log(currentUser[0]._id)
-        console.log(notes[7].author)
         setFiles(arr)
     } ,[])
 

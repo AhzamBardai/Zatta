@@ -38,8 +38,8 @@ function DashNewNote({ history }) {
 
 
     const newNote = () => {
-        const urlNotes = `https://zatta1.herokuapp.com/api/notes/`
-        axios.post(urlNotes, { subject: subject, text: '', author: currentUser[0]._id })
+        const urlNotes = `https://zatta1.herokuapp.com/api/notes/${currentUser[0]._id}`
+        axios.post(urlNotes, { subject: subject, text: '' })
             .then((res) => {
                 axios.get(urlNotes).then(res => {
                     setNotes(res.data)
@@ -54,7 +54,6 @@ function DashNewNote({ history }) {
             <div style={{display: "flex", justifyContent: "center"}}>
                 <Button style={{display: "flex", justifyContent: "right"}} onClick={openModal} variant="outline-secondary">New Note</Button>
             </div>
-            <Button onClick={openModal} variant="outline-secondary">New Note</Button>
             <div className= "modalDiv">
                 <Modal isOpen= {modal} onRequestClose={() => setModal(false)} style={modalStyle}>
                     <div style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}}>
@@ -64,9 +63,6 @@ function DashNewNote({ history }) {
                     <InputGroup className="mb-3">
                         <FormControl placeholder="Enter Note Name" style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}} value={subject} onChange={(e) => setSubject(e.target.value)} />
                         <Button variant="outline-secondary" onClick={newNote} >Create</Button>
-
-                        <FormControl placeholder="Enter New Note Name" style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}}/>
-                        <Button type= "submit"  variant="outline-secondary">Search</Button>
                     </InputGroup>                
                 </Modal>
             </div>

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios'
 import userStore  from '../Users/GetUsers';
 
 function LoginForm({ history }) {
@@ -14,16 +16,24 @@ function LoginForm({ history }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const currentUser = allUsers.filter(item => item.username === loginInfo.username && item.password === loginInfo.password)
+        const currentUser = allUsers.filter(item => item.username === loginInfo.username)
         if(currentUser.length) {
-            setLogedIn(true)
-            setUser(currentUser)
-            history.push('/dashboard')
-        } else {
-            setLogedIn(false)
-            window.alert('Incorrect username or password')
-        }
-         
+            axios.post('https://zatta1.herokuapp.com/api/users/login', {
+                username: currentUser[0].username,
+                password: loginInfo.password
+            })
+            .then(res => {
+                console.log(res.data)
+                if (res.data) {
+                    setLogedIn(true)
+                    setUser(currentUser)
+                    history.push('/dashboard')
+                } else {
+                    setLogedIn(false)
+                    window.alert('Incorrect username or password')
+                }
+            })
+        } 
         setLoginInfo({username: '', password: ''})
     }
 
@@ -67,9 +77,9 @@ function LoginForm({ history }) {
                 or
             </p>
 
-            <a href="register" class="flex-2 underline">
+            <Link to='/signup' class="flex-2 underline">
                 Create an Account
-            </a>
+            </Link>
         </div>
     </form>
 )
