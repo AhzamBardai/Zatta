@@ -12,9 +12,13 @@ import Signup from './components/Signup.jsx';
 import './App.css';
 import Landing from './components/Landing'
 import Navigation from './components/Navigation';
-import Login from './components/Login';
 import Footer from './components/Footer';
+<<<<<<< HEAD
 >>>>>>> 5b9aa22 (Push for Loging page and Landing page components)
+=======
+import { Route , Switch } from 'react-router-dom'
+import Login from './components/Login';
+>>>>>>> 2936829 (Modified for the routes)
 
 function App() {
 
@@ -56,11 +60,28 @@ function App() {
     </div>
 =======
     <div class='bg-gray-50' >
+<<<<<<< HEAD
       <Login/>
       <Navigation/>
      <Landing/>
      <Footer/>
 >>>>>>> 5b9aa22 (Push for Loging page and Landing page components)
+=======
+      
+      
+    <Switch>
+    <Route exact path="/Login" component ={Login}/>
+    
+    
+   
+    
+    <Landing/>
+    
+    </Switch>
+    
+    
+     
+>>>>>>> 2936829 (Modified for the routes)
     </div>
   );
 }
