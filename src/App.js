@@ -25,6 +25,7 @@ import Login from './components/Login';
 >>>>>>> 2936829 (Modified for the routes)
 =======
 import Dashboard from './components/Dashboard'
+import MainApp from './components/mainApp';
 
 >>>>>>> fd3e4c5 (merge with zavier)
 
@@ -91,7 +92,12 @@ function App() {
 =======
       <Route  exact path = '/dashboard'
               component = { Dashboard } />
+<<<<<<< HEAD
 >>>>>>> fd3e4c5 (merge with zavier)
+=======
+
+      <MainApp />
+>>>>>>> 4faebad (merge with zavier)
     </div>
   );
 }
