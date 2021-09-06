@@ -14,8 +14,9 @@ function DashFiles({ files, filter }) {
                 }).map(filter => {
                     return (
                         <div>
-                            <Link to= {`/${filter.subject}`} key= {filter.subject}>
-                                <button>{filter.subject}</button>
+                            <Link to= {`/${filter.subject}`} key= {filter.subject} style={{textDecoration:"none",color: "black", display: "flex", flexDirection:"column"}}>
+                                <img src= {fileImage} alt= {filter.subject} width= "60px" height= "100%"/>
+                                {filter.subject}
                             </Link>
                         </div>
                     )

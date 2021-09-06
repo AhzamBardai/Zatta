@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 function DashHeader({ search, setSearch, match }) {
 
@@ -12,15 +13,9 @@ function DashHeader({ search, setSearch, match }) {
     }
     return (
         <div>
-            <h2>Dashboard Header</h2>
-            <form onSubmit= { handleSubmit }>
-                <input
-                    placeholder= "Search Notes"
-                    type= "text"
-                    onChange= { handleChange }
-                    value= { search } />
-                <button type= "submit">Search</button>
-            </form>
+            <Link to="/dashboard" style={{textDecoration: "none"}}>
+            <h1 style={{textAlign: "center", backgroundColor: "blue", padding: "30px", color: "white"}}>Zatta</h1>
+            </Link>
         </div>
     );
 }
