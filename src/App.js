@@ -21,7 +21,12 @@ import Footer from './components/Footer';
 >>>>>>> 8c1b8e0 (Added commments for the sections of the landing page)
 import { Route , Switch } from 'react-router-dom'
 import Login from './components/Login';
+<<<<<<< HEAD
 >>>>>>> 2936829 (Modified for the routes)
+=======
+import Dashboard from './components/Dashboard'
+
+>>>>>>> fd3e4c5 (merge with zavier)
 
 function App() {
 
@@ -75,16 +80,18 @@ function App() {
     <Switch>
     <Route exact path="/Login" component ={Login}/>
     
-    
-   
-    
     <Landing/>
     
     </Switch>
+<<<<<<< HEAD
     
     
      
 >>>>>>> 2936829 (Modified for the routes)
+=======
+      <Route  exact path = '/dashboard'
+              component = { Dashboard } />
+>>>>>>> fd3e4c5 (merge with zavier)
     </div>
   );
 }
