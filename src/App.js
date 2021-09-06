@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react'
 import Dashboard from './components/Dashboard/Dashboard.jsx'
 import MainApp from './components/Main App/MainApp';
@@ -7,6 +8,13 @@ import Landing from './components/Landing'
 import { Route , Switch } from 'react-router-dom'
 import Login from './components/Login';
 import Signup from './components/Signup.jsx';
+=======
+import './App.css';
+import Landing from './components/Landing'
+import Navigation from './components/Navigation';
+import Login from './components/Login';
+import Footer from './components/Footer';
+>>>>>>> 5b9aa22 (Push for Loging page and Landing page components)
 
 function App() {
 
@@ -27,6 +35,7 @@ function App() {
   }, [])
 
   return (
+<<<<<<< HEAD
     <div>
       <Route  exact path = '/dashboard' component = { () => <Dashboard files={files} /> } />
 
@@ -45,6 +54,13 @@ function App() {
     
      
     </div>
+=======
+    <div class='bg-gray-50' >
+      <Login/>
+      <Navigation/>
+     <Landing/>
+     <Footer/>
+>>>>>>> 5b9aa22 (Push for Loging page and Landing page components)
     </div>
   );
 }
