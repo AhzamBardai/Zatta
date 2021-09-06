@@ -3,14 +3,17 @@ import Modal from 'react-modal';
 import { Button, InputGroup, FormControl } from 'react-bootstrap'
 import { CloseButton } from 'react-bootstrap';
 import axios from 'axios';
+import userStore  from '../Users/GetUsers.js';
 
-//https://www.npmjs.com/package/react-modal#installation
 
 
-function DashNewNote(props) {
+function DashNewNote({ history }) {
 
     const [modal, setModal] = useState(false)
     const [subject, setSubject] = useState('')
+    const currentUser = userStore(state => state.currentUser)
+    const setNotes = userStore(state => state.setNotes) 
+
 
     const modalStyle = {
         content: {
@@ -33,21 +36,15 @@ function DashNewNote(props) {
         setModal(false)
     }
 
-    // function closeCreateModal() {
-    //     setModal(false)
-    //     <Alert>New note successfully made!</Alert>
-    // }
 
     const newNote = () => {
-        const url = 'https://zatta1.herokuapp.com/api/'
-        const urlUser = url + `users/61337912ff3bed0016fed742` // has the user's id not note
-        console.log(urlUser)
-        axios.get(urlUser)
-            .then(res => {
-                const newUser = res.data._id
-                const urlNotes = `https://zatta1.herokuapp.com/api/notes/${newUser}`
-                axios.post(urlNotes, { subject: subject, text: '', author: newUser })
-                    .then(res => console.log(res))
+        const urlNotes = `https://zatta1.herokuapp.com/api/notes/`
+        axios.post(urlNotes, { subject: subject, text: '', author: currentUser[0]._id })
+            .then((res) => {
+                axios.get(urlNotes).then(res => {
+                    setNotes(res.data)
+                })
+                history.push(`/notes/${res.data._id}`)
             })
     }
 

@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react'
 import Dashboard from './components/Dashboard/Dashboard.jsx'
 import MainApp from './components/Main App/MainApp';
@@ -32,9 +33,16 @@ import MainApp from './components/mainApp';
 >>>>>>> fd3e4c5 (merge with zavier)
 =======
 =======
+=======
+import { Route, Redirect } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import axios from 'axios'
+
+// Importing Components
+>>>>>>> 6b6d706 (Routes working with Login)
 import Landing from './components/Landing/Landing'
-import { Route , Switch } from 'react-router-dom'
 import Login from './components/login/Login';
+<<<<<<< HEAD
 >>>>>>> 2c98d9e (MVP Merge Complete)
 
 import React, { useState, useEffect } from 'react'
@@ -42,32 +50,38 @@ import Dashboard from './components/Dashboard/Dashboard.jsx'
 import MainApp from './components/Main App/MainApp';
 import axios from 'axios'
 >>>>>>> 41446ce (merge with zavier)
+=======
+import Dashboard from './components/Dashboard/Dashboard.jsx'
+import MainApp from './components/Main App/MainApp';
+import userStore  from './components/Users/GetUsers';
+
+>>>>>>> 6b6d706 (Routes working with Login)
 
 function App() {
 
-  const [files, setFiles] = useState([])                      //setting state and variable for the files
-  const [user, setUser] = useState('')
-  const [note, setNote] = useState('')
   const urlNotes = "https://zatta1.herokuapp.com/api/notes/"
-  const urlUser = `https://zatta1.herokuapp.com/api/users/${user}`
+  const urlUsers = "https://zatta1.herokuapp.com/api/users/"
+  const setUsers = userStore(state => state.setUsers)
+  const setNotes = userStore(state => state.setNotes) 
+  const isLoggedIn = userStore(state => state.isLoggedIn)
 
+  useEffect(() => {
+    axios.get(urlUsers).then(res => setUsers(res.data)) // store all users in the Zustand store
+    axios.get(urlNotes).then((res) => setNotes(res.data))  // Get all notes
 
-  useEffect(() => {                                           //fetching backend data
-    
-    axios.get(urlNotes).then((res) => {
-        setFiles(res.data)
-        
-    })
-    
   }, [])
 
   return (
+<<<<<<< HEAD
 <<<<<<< HEAD
     <div>
       <Route  exact path = '/dashboard' component = { () => <Dashboard files={files} /> } />
 
       <Route exact path = '/notes/:id' component={(routerProps) => <MainApp note={routerProps.match.params.id} /> } />
     <div class='bg-gray-50' >
+=======
+    <div >
+>>>>>>> 6b6d706 (Routes working with Login)
       
 <<<<<<< HEAD
       
@@ -99,8 +113,9 @@ function App() {
 >>>>>>> 2c98d9e (MVP Merge Complete)
       <Route exact path='/' component={Landing} />
 
-      <Route exact path="/Login" component ={Login}/>
+      <Route exact path="/login" component={ routerProps => <Login history={routerProps.history} />}/>
     
+<<<<<<< HEAD
 <<<<<<< HEAD
     </Switch>
 <<<<<<< HEAD
@@ -125,6 +140,12 @@ function App() {
 
       <Route exact path = '/notes/:id' component={(routerProps) => <MainApp note={routerProps.match.params.id} /> } />
 >>>>>>> 41446ce (merge with zavier)
+=======
+      <Route  exact path = '/dashboard' component = { (routerProps) => isLoggedIn ? <Dashboard history={routerProps.history} /> : <Login {...routerProps.history.push('/login')} /> } />
+
+      <Route exact path = '/notes/:id' component={(routerProps) => isLoggedIn ? <MainApp note={routerProps.match.params.id} /> : <Login />} /> 
+
+>>>>>>> 6b6d706 (Routes working with Login)
     </div>
   );
 }
