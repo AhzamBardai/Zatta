@@ -7,13 +7,15 @@ function DashFiles({ files, filter }) {
     return (
         <div className='dash-files-container'>
             <section className='dash-files-box'>
-                {files.filter((files) => {
+
+                {
+                    files.filter((files) => {
                     if (filter === "") {
                         return files.subject
                     } else if (files.subject.toLowerCase().includes(filter.toLowerCase())) {
                         return files.subject
                     } else return null 
-                }).map(filter => {
+                    }).map(filter => {
                     return (
                         <div className='dash-files'>
                             <Link to= {`/notes/${filter._id}`} key= {filter.subject} className='dash-file-link'>
@@ -22,12 +24,14 @@ function DashFiles({ files, filter }) {
                                         <span>{filter.subject}</span>
                                 </div>
                             </Link>
-                        </div>
                     )
-                })
+                    })
                 }
-            </section>
+
+                </section>
         </div>
+
+
     );
 }
 

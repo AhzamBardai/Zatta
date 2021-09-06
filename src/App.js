@@ -22,12 +22,20 @@ import Footer from './components/Footer';
 import { Route , Switch } from 'react-router-dom'
 import Login from './components/Login';
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 2936829 (Modified for the routes)
 =======
 import Dashboard from './components/Dashboard'
 import MainApp from './components/mainApp';
 
 >>>>>>> fd3e4c5 (merge with zavier)
+=======
+
+import React, { useState, useEffect } from 'react'
+import Dashboard from './components/Dashboard/Dashboard.jsx'
+import MainApp from './components/Main App/MainApp';
+import axios from 'axios'
+>>>>>>> 41446ce (merge with zavier)
 
 function App() {
 
@@ -93,11 +101,17 @@ function App() {
       <Route  exact path = '/dashboard'
               component = { Dashboard } />
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> fd3e4c5 (merge with zavier)
 =======
 
       <MainApp />
 >>>>>>> 4faebad (merge with zavier)
+=======
+      <Route  exact path = '/dashboard' component = { () => <Dashboard files={files} /> } />
+
+      <Route exact path = '/notes/:id' component={(routerProps) => <MainApp note={routerProps.match.params.id} /> } />
+>>>>>>> 41446ce (merge with zavier)
     </div>
   );
 }

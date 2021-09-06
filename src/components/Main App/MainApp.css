@@ -8,22 +8,34 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+<<<<<<< HEAD
     margin: 20px
+=======
+>>>>>>> 41446ce (merge with zavier)
 }
 
 .save-note {
     height: 3rem;
     width: 10rem;
+<<<<<<< HEAD
     border-radius: 15px;
     font-size: 20px;
     background-color: gray;
+=======
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: darkgray;
+>>>>>>> 41446ce (merge with zavier)
     color: black;
     transition: all .2s ease-in-out;
     outline: none;
     cursor: pointer;
     opacity: .7;
+<<<<<<< HEAD
     margin-left: 10px;
 
+=======
+>>>>>>> 41446ce (merge with zavier)
 }
 
 .save-note:hover {
@@ -33,6 +45,7 @@
     color: white;
 }
 
+<<<<<<< HEAD
 .main-note-sbj{
     border: none;
     border-bottom: 1px solid black;
@@ -44,6 +57,10 @@
 
 .quill{
     height: 78vh;
+=======
+.quill{
+    height: 80vh;
+>>>>>>> 41446ce (merge with zavier)
 }
 
 .ql-toolbar{
@@ -53,6 +70,7 @@
     box-shadow: 0 0 10px darkgray;
     border: 1px solid rgba(0, 0, 0, .3);
 }
+<<<<<<< HEAD
 
 
 /* All taken from QL theme Snow to edit */
@@ -1053,3 +1071,5 @@
   color: #06c;
 }
 
+=======
+>>>>>>> 41446ce (merge with zavier)
