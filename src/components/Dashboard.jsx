@@ -9,9 +9,21 @@ import DummyData from './DummyData.json';
 
 function Dashboard(props) {
 
-    const [files, setFiles] = useState(DummyData)           //setting state and variable for the files
-    const [filter, setFilter] = useState("")                //setting state and variable for the filter function
-    const [search, setSearch] = useState("")                //setting state and variable for the search function
+    const [files, setFiles] = useState([])                      //setting state and variable for the files
+    const [filter, setFilter] = useState("")                    //setting state and variable for the filter function
+    const [search, setSearch] = useState("")                    //setting state and variable for the search function
+    
+    useEffect(() => {                                           //fetching backend data
+        const url = "https://zatta1.herokuapp.com/api/notes"
+        fetch(url)
+        .then((res) => {return res.json()})
+        .then((res) => {
+            setFiles(res)
+            console.log(files)
+        })
+        .catch(console.error)
+    }, [])
+
 
     return (
         <div>
