@@ -10,6 +10,7 @@ import Login from './components/Login';
 import Signup from './components/Signup.jsx';
 =======
 import './App.css';
+<<<<<<< HEAD
 import Landing from './components/Landing'
 <<<<<<< HEAD
 import Navigation from './components/Navigation';
@@ -30,6 +31,11 @@ import MainApp from './components/mainApp';
 
 >>>>>>> fd3e4c5 (merge with zavier)
 =======
+=======
+import Landing from './components/Landing/Landing'
+import { Route , Switch } from 'react-router-dom'
+import Login from './components/login/Login';
+>>>>>>> 2c98d9e (MVP Merge Complete)
 
 import React, { useState, useEffect } from 'react'
 import Dashboard from './components/Dashboard/Dashboard.jsx'
@@ -63,6 +69,7 @@ function App() {
       <Route exact path = '/notes/:id' component={(routerProps) => <MainApp note={routerProps.match.params.id} /> } />
     <div class='bg-gray-50' >
       
+<<<<<<< HEAD
       
     
     <Route exact path="/Login" component ={Login}/>
@@ -88,7 +95,11 @@ function App() {
       
       <Route exact path="/Login" component ={Login}/>
       
+=======
+>>>>>>> 2c98d9e (MVP Merge Complete)
       <Route exact path='/' component={Landing} />
+
+      <Route exact path="/Login" component ={Login}/>
     
 <<<<<<< HEAD
     </Switch>
