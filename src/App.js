@@ -86,11 +86,11 @@ function App() {
 =======
       
       
-    <Switch>
-    <Route exact path="/Login" component ={Login}/>
+      <Route exact path="/Login" component ={Login}/>
+      
+      <Route exact path='/' component={Landing} />
     
-    <Landing/>
-    
+<<<<<<< HEAD
     </Switch>
 <<<<<<< HEAD
     
@@ -108,6 +108,8 @@ function App() {
       <MainApp />
 >>>>>>> 4faebad (merge with zavier)
 =======
+=======
+>>>>>>> 17a48f7 (Merged MVP)
       <Route  exact path = '/dashboard' component = { () => <Dashboard files={files} /> } />
 
       <Route exact path = '/notes/:id' component={(routerProps) => <MainApp note={routerProps.match.params.id} /> } />
