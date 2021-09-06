@@ -11,11 +11,14 @@ import Signup from './components/Signup.jsx';
 =======
 import './App.css';
 import Landing from './components/Landing'
+<<<<<<< HEAD
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 <<<<<<< HEAD
 >>>>>>> 5b9aa22 (Push for Loging page and Landing page components)
 =======
+=======
+>>>>>>> 8c1b8e0 (Added commments for the sections of the landing page)
 import { Route , Switch } from 'react-router-dom'
 import Login from './components/Login';
 >>>>>>> 2936829 (Modified for the routes)
