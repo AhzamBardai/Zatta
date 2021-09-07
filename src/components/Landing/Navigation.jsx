@@ -56,12 +56,12 @@ function Navigation({ login }) {
                 </div>
                 
                 <div class="hidden mx-4 lg:flex lg:items-center">
-                    <a href='#' class="block mx-4 mt-2 text-sm text-gray-700 capitalize lg:mt-0 dark:text-gray-200 ">Home</a>
-                    <a href="#" class="block mx-4 mt-2 text-sm text-gray-700 capitalize lg:mt-0 dark:text-gray-200 ">About</a>
+                    <a href='#' class="block mx-4 mt-2 text-sm text-gray-700 capitalize lg:mt-0 dark:text-gray-200 no-underline">Home</a>
+                    <a href="#" class="block mx-4 mt-2 text-sm text-gray-700 capitalize lg:mt-0 dark:text-gray-200 no-underline">About</a>
                   
                 <Switch>
 
-                <Link to="/Login"><button class=" block py-3 px-4 mt-2 mx-4 bg-black rounded-md text-sm
+                <Link to="/Login" class="no-underline"><button class=" block py-3 px-4 mt-2 mx-4 bg-black rounded-md text-sm
                     font-medium text-white 
                     focus:outline-none hover:bg-gray-300 hover:shadow-none " onClick={() => isLoggedIn && logout()  }>
                     { !isLoggedIn ? 'Login' : 'logout' }

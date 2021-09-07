@@ -32,7 +32,7 @@ function Dashboard({ history }) {
                 <div>
                     <Navigation />
                     <div style={{display: "flex", justifyContent: 'space-around', marginTop:"10px"}}>
-                        <div style={{flexDirection: 'row', width: "70%", backgroundColor: "white", boxShadow:"0 0 10px darkgray", borderRadius:"20px", padding: "10px"}}>
+                        <div style={{flexDirection: 'row', height: "100vh", width: "70%", backgroundColor: "white", boxShadow:"0 0 10px darkgray", borderRadius:"20px", padding: "10px"}}>
                             <DashFiles 
                                 filter= {filter}
                                 files= {files}
@@ -50,7 +50,7 @@ function Dashboard({ history }) {
                 <div style={{backgroundColor:"#F3F4F6"}}>
                     <Navigation />
                     <div style={{display: "flex", justifyContent: 'space-around', marginTop:"10px"}}> 
-                        <div style={{flexDirection: 'row', width: "80%", backgroundColor: "white", boxShadow:"0 0 10px darkgray", borderRadius:"20px", padding: "10px"}}>
+                        <div style={{flexDirection: 'row', height: "100vh", width: "80%", backgroundColor: "white", boxShadow:"0 0 10px darkgray", borderRadius:"20px", padding: "10px"}}>
                             <DashFiles 
                                 filter= {filter}
                                 files= {files}

@@ -4,6 +4,8 @@ import todo from './todo.json';
 import DashFilter from './DashFilter'
 import DashNewTodo from './DashNewTodo';
 import { useMediaQuery } from 'react-responsive';
+import { Button, InputGroup, FormControl, CloseButton } from 'react-bootstrap';
+
 
 
 
@@ -43,7 +45,11 @@ function DashTodo(props) {
                             <div className='dash-task'>
                                 <div className="dash-task-name">
                                     <div className='task-card' style={{display: "flex", justifyContent: "center"}}>
-                                        <span>{filter.subject}</span>
+                                        {/* <span>{filter.subject}</span> */}
+                                        <InputGroup>
+                                            <InputGroup.Checkbox aria-label="Checkbox for following text input" />
+                                            <FormControl aria-label={filter.subject}/>
+                                        </InputGroup>
                                     </div>
                                 </div>
                             </div>

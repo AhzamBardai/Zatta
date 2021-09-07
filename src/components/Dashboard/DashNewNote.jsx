@@ -76,7 +76,7 @@ function DashNewNote({ history, filter }) {
             ?
                 <div>
                     <div style={{display: "flex", justifyContent: "center"}}>
-                        <Button style={{display: "flex", justifyContent: "right", marginLeft:"10px"}} onClick={openModal} variant="primary">{screen ? "New Note" : "+"}</Button>
+                        <Button style={{display: "flex", justifyContent: "right", marginLeft:"10px", backgroundColor:"black"}} onClick={openModal} variant="dark">{screen ? "New Note" : "+"}</Button>
                     </div>
                     <div className= "modalDiv">
                         <Modal isOpen= {modal} onRequestClose={() => setModal(false)} style={modalStyle}>
@@ -86,7 +86,7 @@ function DashNewNote({ history, filter }) {
                             </div>
                             <InputGroup className="mb-3">
                                 <FormControl placeholder="Enter Note Name" style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}} value={subject} onChange={(e) => setSubject(e.target.value)} />
-                                <Link to="/dashboard"><Button variant="outline-secondary" onClick={newNote} >Create</Button></Link>
+                                <Link to="/dashboard"><Button style={{backgroundColor:"black"}} variant="dark" onClick={newNote} >Create</Button></Link>
                             </InputGroup>                
                         </Modal>
                     </div>
@@ -118,8 +118,8 @@ function DashNewNote({ history, filter }) {
             :
                 <div>
                     <div style={{display: "flex", justifyContent: "center"}}>
-                        <Button style={{display: "flex", justifyContent: "right", marginLeft:"10px"}} onClick={openModal} variant="primary">{screen ? "New Note" : "+"}</Button>
-                        <Button style={{display: "flex", justifyContent: "right", marginLeft:"10px"}} onClick={openTaskModal} variant="primary">Task</Button>
+                        <Button style={{display: "flex", justifyContent: "right", marginLeft:"10px", backgroundColor:"black"}} onClick={openModal} variant="dark">{screen ? "New Note" : "Note"}</Button>
+                        <Button style={{display: "flex", justifyContent: "right", marginLeft:"10px", backgroundColor:"black"}} onClick={openTaskModal} variant="dark">Task</Button>
                     </div>
                     <div className= "modalDiv">
                         <Modal isOpen= {modal} onRequestClose={() => setModal(false)} style={modalStyle}>
@@ -129,7 +129,7 @@ function DashNewNote({ history, filter }) {
                             </div>
                             <InputGroup className="mb-3">
                                 <FormControl placeholder="Enter Note Name" style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}} value={subject} onChange={(e) => setSubject(e.target.value)} />
-                                <Link to="/dashboard"><Button variant="outline-secondary" onClick={newNote}>Create</Button></Link>
+                                <Link to="/dashboard"><Button style={{backgroundColor:"black"}} variant="dark" onClick={newNote}>Create</Button></Link>
                             </InputGroup>                
                         </Modal>
                     </div>
@@ -141,7 +141,7 @@ function DashNewNote({ history, filter }) {
                             </div>
                             <InputGroup className="mb-3">
                                 <FormControl placeholder="Enter Task" style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}} value={subject} onChange={(e) => setSubject(e.target.value)} />
-                                <Link to="/dashboard"><Button variant="outline-secondary">Create</Button></Link>
+                                <Link to="/dashboard"><Button style={{backgroundColor:"black"}} variant="dark">Create</Button></Link>
                             </InputGroup>
                             <DashTodoFilter 
                                 taskFilter={taskFilter}
@@ -162,7 +162,7 @@ function DashNewNote({ history, filter }) {
                                                 <div className='task-card' style={{display: "flex", justifyContent: "center", marginTop: "5px"}}>
                                                 <InputGroup>
                                                     <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                                                    <FormControl aria-label={filter.subject} />
+                                                    <FormControl aria-label={filter.subject}/>
                                                 </InputGroup>
                                                 </div>
                                             </div>

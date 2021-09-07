@@ -14,7 +14,7 @@ function DashNewTodo({ history }) {
     const [subject, setSubject] = useState('')
     // const currentUser = userStore(state => state.currentUser)
     // const setNotes = userStore(state => state.setNotes) 
-    const screen = useMediaQuery({query: "(min-width: 1200px)"})
+    const screen = useMediaQuery({query: "(min-width: 1180px)"})
 
     
     const modalStyle = {
@@ -55,7 +55,7 @@ function DashNewTodo({ history }) {
         
         <div>
             <div style={{display: "flex", justifyContent: "center"}}>
-                <Button style={{display: "flex", justifyContent: "right", marginLeft:"10px"}} onClick={openModal} variant="primary">{screen ? "New Task" : "+"}</Button>
+                <Button style={{display: "flex", justifyContent: "right", marginLeft:"10px", backgroundColor:"black"}} onClick={openModal} variant="dark">{screen ? "New Task" : "+"}</Button>
             </div>
             <div className= "modalDiv">
                 <Modal isOpen= {modal} onRequestClose={() => setModal(false)} style={modalStyle}>
@@ -66,7 +66,7 @@ function DashNewTodo({ history }) {
                     <InputGroup className="mb-3">
                         <FormControl placeholder="Enter Task" style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}} value={subject} onChange={(e) => setSubject(e.target.value)} />
                         {/* add the onclick to make the task in database */}
-                        <Link to="/dashboard"><Button variant="outline-secondary" >Create</Button></Link>
+                        <Link to="/dashboard"><Button style={{backgroundColor:"black"}} variant="dark" >Create</Button></Link>
                     </InputGroup>                
                 </Modal>
             </div>
