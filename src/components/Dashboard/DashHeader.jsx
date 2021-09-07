@@ -2,7 +2,6 @@ import React ,  {useState} from 'react';
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import userStore  from '../Users/GetUsers';
-import DashSearch from './DashFilter';
 import DashNewNote from './DashNewNote';
 
 
@@ -21,20 +20,16 @@ function DashHeader(props) {
 
     
     return (
-        <div>
             <div>
             
             <nav class="bg-gray-50 shadow dark:bg-gray-800">
-        <div class="container px-6 py-4 mx-auto">
-            <div class="lg:flex lg:items-center lg:justify-between">
-                <div class="flex items-center justify-between">
+        <div class="container px-6 py-4 mx-auto ">
+            <div class="lg:flex lg:justify-between lg:align-items-center">
+                <div class="flex align-items-center justify-between">
                     <div class="text-xl font-semibold text-gray-700">
                         <a class="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300 no-underline" href="/">Zatta</a>
                     </div>
 
-                    <Link to="/login" style={{textDecoration: "none"}}>
-                        <Button style={{display: "flex", justifyContent: "right"}} onClick={() => {setLoggedIn(false); setUser({})}} variant="primary">Log out</Button>
-                    </Link>
 
                     
                     <div class='flex lg:hidden '>
@@ -50,7 +45,12 @@ function DashHeader(props) {
                 </div>
                 
 
-                <div class={`mx-4 mt-1 lg:flex lg:items-center transform ${!openMenu ? "block":"hidden"}`}>
+                <div class={`mx-4 mt-1 lg:flex lg:align-items-center transform ${!openMenu ? "block":"hidden"}`}>
+
+                    <Link to="/login" style={{textDecoration: "none", marginRight: '10px'}}>
+                        <Button style={{display: "flex", justifyContent: "right"}} onClick={() => {setLoggedIn(false); setUser({})}} variant="primary">Log out</Button>
+                    </Link>
+
                    
                    <DashNewNote/>
                 </div>
@@ -62,7 +62,6 @@ function DashHeader(props) {
            
             
            
-        </div>
     );
 }
 

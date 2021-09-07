@@ -13,6 +13,7 @@ function LoginForm({ history }) {
     const user = userStore(state => state.currentUser)
     const setUser = userStore(state => state.setCurrentUser)
     const [currUser, setCurrUser] = useState({})
+    const [response, setResponse] = useState(null)
 
 
     const [loginInfo, setLoginInfo] = useState({
@@ -25,11 +26,14 @@ function LoginForm({ history }) {
         axios.post(urlUsers + '/login', loginInfo)
             .then(res => {
                 if(res.data){
+
                     axios.get(urlUsers).then(res => {
                         const arr = res.data.filter(item => item.username === loginInfo.username)
                         console.log(arr[0])
                         setCurrUser(arr)
-                        console.log(arr)
+                        const haha = res
+                        setResponse(haha)
+                        console.log(haha)
                         console.log(currUser)
                     })
                     .then(() =>  axios.get(urlNotes + `/author/${currUser._id}`).then(res => {

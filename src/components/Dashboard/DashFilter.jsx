@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button, InputGroup, FormControl } from 'react-bootstrap'
+import { CloseButton, FormControl } from 'react-bootstrap'
 
 
-function DashSearch({ search, setSearch, setFilter, filter }) {
+function DashSearch({ setFilter, filter }) {
 
     function resetFilter (e) {
         e.preventDefault()
@@ -10,12 +10,12 @@ function DashSearch({ search, setSearch, setFilter, filter }) {
     }
 
     return (
-        <div style={{display: "flex",  justifyContent: "center", width: '20rem' }}>
-
-                <form style={{display: "flex", flexDirection: 'row'}}>
-                    <FormControl placeholder="Filter Notes" value={filter} onChange={e => {setFilter(e.target.value)}} style={{marginRight: '10px'}} />
-                    <Button  type= "submit" onClick={(e) => resetFilter(e)} variant="outline-secondary">Reset</Button>
-                </form>
+        <div>
+            
+            <form style={{display: "flex", flexDirection: 'row',alignItems:"center", borderRadius:"5px", border:"1px solid #CCC"}}>
+                <FormControl placeholder="Filter Tasks" value={filter} onChange={e => {setFilter(e.target.value)}} style={{marginRight: '10px', border:"none"}} />
+                <CloseButton onClick={(e) => resetFilter(e)}/>
+            </form>
 
         </div>
 
