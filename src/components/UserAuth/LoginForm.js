@@ -17,6 +17,7 @@ function LoginForm({ history }) {
     const [loginInfo, setLoginInfo] = useState({
         username: '',
         password: '',
+        email: '',
         _id: '',
     })
 
@@ -29,14 +30,13 @@ function LoginForm({ history }) {
                     .then(res => {
                         axios.get(urlNotes + `/author/${res.data[0]._id}`).then(res => {
                             setNotes(res.data)
-                            setLoginInfo({...loginInfo, _id: res.data[0]._id})
                         })
+                        return res.data[0]
                     })
-                    .then(() => {
-                        setUser(loginInfo) 
-                        console.log(user)
-                    }) 
-                    
+                    .then(res => {
+                        setUser({...loginInfo, _id: res._id, password: res.password, email: res.email})
+                    })
+                
                     setLogedIn(true)
                     history.push('/dashboard')
         
