@@ -9,7 +9,18 @@ function Navigation({ login }) {
     const [openMenu,setopenMenu]=useState(false)
     const setLogedIn = userStore(state => state.setLoggedIn)
     const setUser = userStore(state => state.setCurrentUser)
+    const isLoggedIn = userStore(state => state.isLoggedIn)
+    const setNotes = userStore(state => state.setNotes) 
+    const setTodos = userStore(state => state.setTodos) 
 
+
+    const logout = () => {
+        setUser({})
+        setLogedIn(false)
+        setNotes([])
+        setTodos([])
+        window.sessionStorage.removeItem('sessionID')
+    } 
 
     function handleClick(){
         setopenMenu(!openMenu);
@@ -45,8 +56,8 @@ function Navigation({ login }) {
 
                 <Link to="/Login"><button class=" block py-3 px-4 mt-2 mx-4 bg-black rounded-md text-sm
                     font-medium text-white 
-                    focus:outline-none hover:bg-gray-300 hover:shadow-none " onClick={() => !login && setLogedIn(false) && setUser({}) }>
-                    { login? 'Login' : 'logout' }
+                    focus:outline-none hover:bg-gray-300 hover:shadow-none " onClick={() => isLoggedIn && logout()  }>
+                    { !isLoggedIn ? 'Login' : 'logout' }
                 </button></Link>
 
                 </Switch>

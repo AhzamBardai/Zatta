@@ -23,7 +23,7 @@ function Dashboard({ history }) {
         axios.get(urlNotes + `author/${currentUser._id}`).then(res => {
             setFiles(res.data)
         })        
-    } ,[isLoggedIn])
+    } ,[notes])
 
     return (
         <div style={{backgroundColor:"#F3F4F6"}}>
