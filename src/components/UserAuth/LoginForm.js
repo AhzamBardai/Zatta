@@ -5,9 +5,15 @@ import userStore  from '../Users/GetUsers';
 
 function LoginForm({ history }) {
 
-    const allUsers = userStore(state => state.users)
-    const setUser = userStore(state => state.setCurrentUser)
+    // data from user store
+    const urlNotes = userStore(state => state.urlNotes)
+    const urlUsers = userStore(state => state.urlUsers)
+    const setNotes = userStore(state => state.setNotes) 
     const setLogedIn = userStore(state => state.setLoggedIn)
+    const user = userStore(state => state.currentUser)
+    const setUser = userStore(state => state.setCurrentUser)
+    const [currUser, setCurrUser] = useState({})
+
 
     const [loginInfo, setLoginInfo] = useState({
         username: '',
@@ -16,26 +22,31 @@ function LoginForm({ history }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const currentUser = allUsers.filter(item => item.username === loginInfo.username)
-        if(currentUser.length) {
-            axios.post('https://zatta1.herokuapp.com/api/users/login', {
-                username: currentUser[0].username,
-                password: loginInfo.password
-            })
+        axios.post(urlUsers + '/login', loginInfo)
             .then(res => {
-                console.log(res.data)
-                if (res.data) {
+                if(res.data){
+                    axios.get(urlUsers).then(res => {
+                        const arr = res.data.filter(item => item.username === loginInfo.username)
+                        console.log(arr[0])
+                        setCurrUser(arr)
+                        console.log(arr)
+                        console.log(currUser)
+                    })
+                    .then(() =>  axios.get(urlNotes + `/author/${currUser._id}`).then(res => {
+                        setNotes(res.data)
+                    }) )
+                    setUser(currUser)
                     setLogedIn(true)
-                    setUser(currentUser)
                     history.push('/dashboard')
                 } else {
                     setLogedIn(false)
                     window.alert('Incorrect username or password')
                 }
             })
-        } 
+        
         setLoginInfo({username: '', password: ''})
     }
+    
 
 
     return (

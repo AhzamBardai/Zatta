@@ -1,6 +1,5 @@
 import { Route, Switch } from 'react-router-dom'
-import React, { useEffect } from 'react'
-import axios from 'axios'
+import React from 'react'
 
 // Importing Components
 import Landing from './components/Landing/Landing'
@@ -13,17 +12,7 @@ import userStore  from './components/Users/GetUsers';
 
 function App() {
 
-  const urlNotes = "https://zatta1.herokuapp.com/api/notes/"
-  const urlUsers = "https://zatta1.herokuapp.com/api/users/"
-  const setUsers = userStore(state => state.setUsers)
-  const setNotes = userStore(state => state.setNotes) 
   const isLoggedIn = userStore(state => state.isLoggedIn)
-
-  useEffect(() => {
-    axios.get(urlUsers).then(res => setUsers(res.data)) // store all users in the Zustand store
-    axios.get(urlNotes).then((res) => setNotes(res.data))  // Get all notes
-
-  }, [])
 
   return (
     <div >

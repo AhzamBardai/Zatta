@@ -4,19 +4,21 @@ import DashFilter from './DashFilter';
 import DashFiles from './DashFiles';
 import DashNewNote from './DashNewNote';
 import userStore  from '../Users/GetUsers.js';
+import axios from 'axios';
 
 function Dashboard({ history }) {
 
     const currentUser = userStore(state => state.currentUser)
     const notes = userStore(state => state.notes)
-    const [files, setFiles] = useState([])                      //setting state and variable for the files
+    const urlNotes = userStore(state => state.urlNotes)
+    const [files, setFiles] = useState(notes)                      //setting state and variable for the files
     const [filter, setFilter] = useState("")                    //setting state and variable for the filter function
     const [search, setSearch] = useState("")                    //setting state and variable for the search function
     
     useEffect(() => {
-        const arr = notes.filter(item => item.author === currentUser[0]._id)
-        console.log(currentUser[0]._id)
-        setFiles(arr)
+        axios.get(urlNotes + `/author/${currentUser._id}`).then(res => {
+            setFiles(res.data)
+        })        
     } ,[])
 
     return (

@@ -38,10 +38,10 @@ function DashNewNote({ history }) {
 
 
     const newNote = () => {
-        const urlNotes = `https://zatta1.herokuapp.com/api/notes/${currentUser[0]._id}`
-        axios.post(urlNotes, { subject: subject, text: '' })
+        const urlNotes = `https://zatta1.herokuapp.com/api/notes/`
+        axios.post(urlNotes + currentUser._id, { subject: subject, text: '' })
             .then((res) => {
-                axios.get(urlNotes).then(res => {
+                axios.get(urlNotes + `/author/${currentUser._id}`).then(res => {
                     setNotes(res.data)
                 })
                 history.push(`/notes/${res.data._id}`)
