@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { Link , Switch } from 'react-router-dom'
+import userStore  from '../Users/GetUsers';
 
 
 
-function Navigation(props) {
+function Navigation({ login }) {
 
     const [openMenu,setopenMenu]=useState(false)
+    const setLogedIn = userStore(state => state.setLoggedIn)
+    const setUser = userStore(state => state.setCurrentUser)
+
 
     function handleClick(){
         setopenMenu(!openMenu);
@@ -41,8 +45,8 @@ function Navigation(props) {
 
                 <Link to="/Login"><button class=" block py-3 px-4 mt-2 mx-4 bg-black rounded-md text-sm
                     font-medium text-white 
-                    focus:outline-none hover:bg-gray-300 hover:shadow-none ">
-                    Login
+                    focus:outline-none hover:bg-gray-300 hover:shadow-none " onClick={() => !login && setLogedIn(false) && setUser({}) }>
+                    { login? 'Login' : 'logout' }
                 </button></Link>
 
                 </Switch>

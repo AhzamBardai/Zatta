@@ -12,6 +12,7 @@ function Dashboard({ history }) {
     const currentUser = userStore(state => state.currentUser)
     const notes = userStore(state => state.notes)
     const urlNotes = userStore(state => state.urlNotes)
+    const isLoggedIn = userStore(state => state.isLoggedIn)
     const [files, setFiles] = useState(notes)                      //setting state and variable for the files
     const [filter, setFilter] = useState("")                    //setting state and variable for the filter function
     const [search, setSearch] = useState("")                    //setting state and variable for the search function
@@ -19,10 +20,10 @@ function Dashboard({ history }) {
     const screen = useMediaQuery({query: "(min-width: 1024px)"})
 
     useEffect(() => {
-        axios.get(urlNotes + `/author/${currentUser._id}`).then(res => {
+        axios.get(urlNotes + `author/${currentUser._id}`).then(res => {
             setFiles(res.data)
         })        
-    } ,[])
+    } ,[isLoggedIn])
 
     return (
         <div style={{backgroundColor:"#F3F4F6"}}>
@@ -37,6 +38,7 @@ function Dashboard({ history }) {
                                 files= {files}
                                 setFiles= {setFiles}
                                 setFilter= {setFilter}
+                                history={history}
                             />
                         </div>
                         <div style={{display: "flex", flexDirection: 'column', backgroundColor: "white", boxShadow:"0 0 10px darkgray", borderRadius:"20px", padding: "10px"}}>
@@ -54,6 +56,7 @@ function Dashboard({ history }) {
                                 files= {files}
                                 setFiles= {setFiles}
                                 setFilter= {setFilter}
+                                history={history}
                             />
                         </div>
                     </div>

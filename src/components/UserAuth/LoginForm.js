@@ -12,13 +12,12 @@ function LoginForm({ history }) {
     const setLogedIn = userStore(state => state.setLoggedIn)
     const user = userStore(state => state.currentUser)
     const setUser = userStore(state => state.setCurrentUser)
-    const [currUser, setCurrUser] = useState({})
-    const [response, setResponse] = useState(null)
 
 
     const [loginInfo, setLoginInfo] = useState({
         username: '',
-        password: ''
+        password: '',
+        _id: '',
     })
 
     const handleSubmit = (e) => {
@@ -26,31 +25,35 @@ function LoginForm({ history }) {
         axios.post(urlUsers + '/login', loginInfo)
             .then(res => {
                 if(res.data){
-
-                    axios.get(urlUsers).then(res => {
-                        const arr = res.data.filter(item => item.username === loginInfo.username)
-                        console.log(arr[0])
-                        setCurrUser(arr)
-                        const haha = res
-                        setResponse(haha)
-                        console.log(haha)
-                        console.log(currUser)
+                    axios.post(urlUsers + '/username', { username: loginInfo.username })
+                    .then(res => {
+                        axios.get(urlNotes + `/author/${res.data[0]._id}`).then(res => {
+                            setNotes(res.data)
+                            setLoginInfo({...loginInfo, _id: res.data[0]._id})
+                        })
                     })
-                    .then(() =>  axios.get(urlNotes + `/author/${currUser._id}`).then(res => {
-                        setNotes(res.data)
-                    }) )
-                    setUser(currUser)
+                    .then(() => {
+                        setUser(loginInfo) 
+                        console.log(user)
+                    }) 
+                    
                     setLogedIn(true)
                     history.push('/dashboard')
+        
                 } else {
                     setLogedIn(false)
                     window.alert('Incorrect username or password')
                 }
+
             })
         
         setLoginInfo({username: '', password: ''})
     }
     
+    async function getJson() {
+        const res = await axios(urlUsers + '/username', { username: loginInfo.username } )
+        console.log(res.data)
+    }
 
 
     return (

@@ -64,6 +64,7 @@ function DashNewNote({ history, filter }) {
                 axios.get(urlNotes + `/author/${currentUser._id}`).then(res => {
                     setNotes(res.data)
                 })
+                console.log('/notes/' + res.data._id)
                 history.push(`/notes/${res.data._id}`)
             })
     }

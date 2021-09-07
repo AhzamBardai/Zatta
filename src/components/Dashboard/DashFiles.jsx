@@ -6,7 +6,7 @@ import DashFilter from './DashFilter';
 import DashNewNote from './DashNewNote';
 import { useMediaQuery } from 'react-responsive';
 
-function DashFiles({ files, filter, setFilter }) {
+function DashFiles({ files, filter, setFilter, history }) {
 
     const screen = useMediaQuery({query: "(min-width: 1024px)"})
 
@@ -26,9 +26,10 @@ function DashFiles({ files, filter, setFilter }) {
                         <DashNewNote 
                         files={files}
                         filter={filter}
+                        history={history}
                         />
                     </div>
-                    <section className='dash-files-box' style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center"}}>
+                    {/* <section className='dash-files-box' style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center"}}>
                         {files.filter((file) => filter === ""                                                 // if 
                                                 ? file.subject 
                                                 : file.subject.toLowerCase().includes(filter.toLowerCase())   // else if  
@@ -51,7 +52,7 @@ function DashFiles({ files, filter, setFilter }) {
                                 )
                             })
                         }
-                    </section>
+                    </section> */}
                 </div>
             :
             <div>
@@ -62,9 +63,9 @@ function DashFiles({ files, filter, setFilter }) {
                     filter= {filter}
                 />
 
-                <DashNewNote />
+                <DashNewNote history={history} />
             </div>
-            <section className='dash-files-box' style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center"}}>
+            {/* <section className='dash-files-box' style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center"}}>
                 {files.filter((file) => filter === ""                                                 // if 
                                         ? file.subject 
                                         : file.subject.toLowerCase().includes(filter.toLowerCase())   // else if  
@@ -87,7 +88,7 @@ function DashFiles({ files, filter, setFilter }) {
                         )
                     })
                 }
-            </section>
+            </section> */}
         </div>
             }
                 
