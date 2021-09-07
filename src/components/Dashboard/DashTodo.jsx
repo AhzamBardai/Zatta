@@ -45,11 +45,11 @@ function DashTodo(props) {
                             <div className='dash-task'>
                                 <div className="dash-task-name">
                                     <div className='task-card' style={{display: "flex", justifyContent: "center"}}>
-                                        {/* <span>{filter.subject}</span> */}
-                                        <InputGroup>
+                                        <span>{filter.subject}</span>
+                                        {/* <InputGroup>
                                             <InputGroup.Checkbox aria-label="Checkbox for following text input" />
                                             <FormControl aria-label={filter.subject}/>
-                                        </InputGroup>
+                                        </InputGroup> */}
                                     </div>
                                 </div>
                             </div>
