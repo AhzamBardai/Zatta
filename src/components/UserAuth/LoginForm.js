@@ -62,7 +62,7 @@ function LoginForm({ history }) {
                     }
                 })
                 
-        
+        window.sessionStorage.getItem('username') && history.push('/dashboard')
         setLoginInfo({username: '', password: ''})
     }
     

@@ -119,13 +119,18 @@ function Navigation({ login }) {
                     <a href='#' class="block mx-4 mt-3 text-sm text-gray-700 capitalize lg:mt-0 dark:text-gray-200 no-underline">Home</a>
                     <a href="#" class="block mx-4 mt-3 text-sm text-gray-700 capitalize lg:mt-0 dark:text-gray-200 no-underline">About</a>
                   
-                <Switch>
+
+                { isLoggedIn && ( <Link to="/dashboard" class="no-underline"><button class=" block py-1.5 px-2.5 mt-2.5 mx-4 bg-black rounded-md text-sm
+                    font-medium text-white 
+                    focus:outline-none hover:bg-gray-300 hover:shadow-none " >
+                    Dashboard
+                </button></Link>)}
+
                 <Link to="/Login" class="no-underline"><button class=" block py-1.5 px-2.5 mt-2.5 mx-4 bg-black rounded-md text-sm
                     font-medium text-white 
                     focus:outline-none hover:bg-gray-300 hover:shadow-none " onClick={() => isLoggedIn && logout()  }>
                     { !isLoggedIn ? 'Login' : 'logout' }
                 </button></Link>
-                </Switch>
                 
                 
                 </div>

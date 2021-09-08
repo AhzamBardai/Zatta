@@ -57,9 +57,9 @@ function App() {
 
         <Route exact path='/' component={Landing} />
 
-        <Route exact path="/login" component={ routerProps => <Login history={routerProps.history} />}/>
+        <Route exact path="/login" component={ routerProps => !username ? <Login history={routerProps.history} /> : <Dashboard {...routerProps.history.push('/dashboard')}/>}/>
 
-        <Route exact path="/signup" component={ routerProps => <Signup history={routerProps.history} />}/>
+        <Route exact path="/signup" component={ routerProps => !username ?  <Signup history={routerProps.history} /> : <Dashboard {...routerProps.history.push('/dashboard')} />}/>
       
         <Route exact path = '/dashboard' component = { (routerProps) => username ? <Dashboard history={routerProps.history} /> : <Login {...routerProps.history.push('/login')} /> } />
 
