@@ -5,7 +5,6 @@ import axios from 'axios';
 import userStore  from '../Users/GetUsers.js';
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
-import todo from './todo.json';
 import DashTodoFilter from './DashFilter'
 import fileImage from '../images/file.png';
 import DashTodo from './DashTodo';
@@ -22,8 +21,6 @@ function DashNewNote({ history, filter }) {
 
     // todo
     const [taskModal, setTaskModal] = useState(false)
-    const [task, setTask] = useState(todo)
-    const [taskFilter, setTaskFilter] = useState("")
     const screen = useMediaQuery({query: "(min-width: 1024px)"})
 
 
