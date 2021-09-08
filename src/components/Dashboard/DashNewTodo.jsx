@@ -10,14 +10,13 @@ import userStore  from '../Users/GetUsers.js';
 
 
 
-//https://www.npmjs.com/package/react-modal#installation
 
 
 function DashNewTodo({ history }) {
 
     const [modal, setModal] = useState(false)
     const [subject, setSubject] = useState('')
-    const screen = useMediaQuery({query: "(min-width: 1180px)"})
+    const screen = useMediaQuery({query: "(min-width: 1197px)"})
     const currentUser = userStore(state => state.currentUser)
     const setTodos = userStore(state => state.setTodos) 
 
