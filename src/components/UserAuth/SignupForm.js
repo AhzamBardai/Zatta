@@ -23,7 +23,7 @@ function SignupForm({ history }) {
             .then(res => {
                 setUser(res.data)
                 setLogedIn(true)
-                window.sessionStorage.setItem('username', res.username)
+                window.sessionStorage.setItem('username', res.data.username)
                 window.location.reload()
             })
             .catch((err) => {
