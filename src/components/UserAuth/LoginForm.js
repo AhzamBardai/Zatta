@@ -51,10 +51,10 @@ function LoginForm({ history }) {
                         .then(res => {
                             setUser(res)
                             window.sessionStorage.setItem('username', res.username)
-                        })
-                        setLogedIn(true)
-                        history.push('/dashboard')
-                    
+                        }).then(() => {
+                            setLogedIn(true)
+                            window.location.reload()   
+                        })                    
 
                     }  else {
                         setLogedIn(false)
@@ -64,12 +64,6 @@ function LoginForm({ history }) {
                 
         window.sessionStorage.getItem('username') && history.push('/dashboard')
         setLoginInfo({username: '', password: ''})
-    }
-    
-    
-    async function getJson() {
-        const res = await axios(urlUsers + '/username', { username: loginInfo.username } )
-        console.log(res.data)
     }
 
 

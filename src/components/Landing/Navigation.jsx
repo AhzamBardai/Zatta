@@ -116,15 +116,15 @@ function Navigation({ login }) {
                 </div>
                 
                 <div class={`mx-4 mt-2 mb-4 lg:flex lg:align-items-center  ${openMenu ? "block transform translate-y-6":"hidden "}`}>
-                    <a href='#' class="block mx-4 mt-3 text-sm text-gray-700 capitalize lg:mt-0 dark:text-gray-200 no-underline">Home</a>
+                    <a href='/' class="block mx-4 mt-3 text-sm text-gray-700 capitalize lg:mt-0 dark:text-gray-200 no-underline">Home</a>
                     <a href="#" class="block mx-4 mt-3 text-sm text-gray-700 capitalize lg:mt-0 dark:text-gray-200 no-underline">About</a>
                   
 
-                { isLoggedIn && ( <Link to="/dashboard" class="no-underline"><button class=" block py-1.5 px-2.5 mt-2.5 mx-4 bg-black rounded-md text-sm
+                { <Link to={ isLoggedIn ? "/dashboard" : '/signup'} class="no-underline"><button class=" block py-1.5 px-2.5 mt-2.5 mx-4 bg-black rounded-md text-sm
                     font-medium text-white 
                     focus:outline-none hover:bg-gray-300 hover:shadow-none " >
-                    Dashboard
-                </button></Link>)}
+                    { isLoggedIn ? 'Dashboard' : 'Sign Up'}
+                </button></Link>}
 
                 <Link to="/Login" class="no-underline"><button class=" block py-1.5 px-2.5 mt-2.5 mx-4 bg-black rounded-md text-sm
                     font-medium text-white 

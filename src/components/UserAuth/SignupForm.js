@@ -1,5 +1,4 @@
 import React,{ useState } from 'react'
-import { Link } from 'react-router-dom';
 import axios from 'axios'
 import userStore  from '../Users/GetUsers';
 
@@ -25,7 +24,7 @@ function SignupForm({ history }) {
                 setUser(res.data)
                 setLogedIn(true)
                 window.sessionStorage.setItem('username', res.username)
-                history.push('/dashboard')
+                window.location.reload()
             })
             .catch((err) => {
                 console.log(err.message)

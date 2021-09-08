@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import LoginForm from './LoginForm';
 
 function Login({ history }) {
@@ -14,7 +15,8 @@ function Login({ history }) {
                         px-6 py-10 sm:px-10 sm:py-6 
                         bg-white rounded-lg shadow-md lg:shadow-lg">
 
-                        
+                        <Link to='/'><button>Back to home</button></Link>
+
                         <h2 class="text-center font-semibold text-3xl lg:text-4xl text-gray-800">
                             login
                         </h2>
