@@ -13,7 +13,6 @@ function QuillEditor({ notes, subject }) {
     const handleChange = (content) => {
         const url = window.location.pathname.split('/')
         axios.put(urlNotes + url[2], { text: content })
-        console.log(subject)
     }
     
 

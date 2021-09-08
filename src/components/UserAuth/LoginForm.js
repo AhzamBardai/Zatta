@@ -52,7 +52,6 @@ function LoginForm({ history }) {
                             setUser(res)
                             window.sessionStorage.setItem('username', res.username)
                         })
-                        console.log(res.data)
                         setLogedIn(true)
                         history.push('/dashboard')
                     

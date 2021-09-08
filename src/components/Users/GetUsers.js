@@ -6,7 +6,7 @@ import { mountStoreDevtool } from "simple-zustand-devtools";
 
 const userStore = create(set => ({
     urlNotes: "https://zatta1.herokuapp.com/api/notes/",
-    urlTodoa: "https://zatta1.herokuapp.com/api/todos/",
+    urlTodos: "https://zatta1.herokuapp.com/api/todos/",
     urlUsers: "https://zatta1.herokuapp.com/api/users/",
     isLoggedIn: false,
     notes: [],
