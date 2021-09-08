@@ -8,10 +8,6 @@ import userStore  from '../Users/GetUsers.js';
 
 
 
-
-
-
-
 function DashNewTodo({ history }) {
 
     const [modal, setModal] = useState(false)
@@ -58,6 +54,7 @@ function DashNewTodo({ history }) {
     return (
         
         <div>
+
             <div style={{display: "flex", justifyContent: "center"}}>
                 <Button style={{display: "flex", justifyContent: "right", marginLeft:"10px", backgroundColor:"black"}} onClick={openModal} variant="dark">{screen ? "New Task" : "+"}</Button>
             </div>
@@ -73,6 +70,7 @@ function DashNewTodo({ history }) {
                     </InputGroup>                
                 </Modal>
             </div>
+            
         </div>
     );
 }

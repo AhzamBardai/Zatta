@@ -12,9 +12,8 @@ function Dashboard({ history }) {
     const notes = userStore(state => state.notes)
     const urlNotes = userStore(state => state.urlNotes)
     const isLoggedIn = userStore(state => state.isLoggedIn)
-    const [files, setFiles] = useState(notes)                      //setting state and variable for the files
-    const [filter, setFilter] = useState("")                    //setting state and variable for the filter function
-    const [search, setSearch] = useState("")                    //setting state and variable for the search function
+    const [files, setFiles] = useState(notes)
+    const [filter, setFilter] = useState("")
     
     const screen = useMediaQuery({query: "(min-width: 1024px)"})
 
@@ -28,6 +27,7 @@ function Dashboard({ history }) {
 
     return (
         <div style={{backgroundColor:"#F3F4F6", height: "100vh"}}>
+
             {screen 
             ?
                 <div>
@@ -63,6 +63,7 @@ function Dashboard({ history }) {
                     </div>
                 </div>
             }
+            
         </div>
     );
 }

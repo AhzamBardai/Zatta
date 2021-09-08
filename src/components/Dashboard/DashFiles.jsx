@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import fileImage from '../images/file.png'
-import './styles/Dashboard.css'
 import DashFilter from './DashFilter';
 import DashNewNote from './DashNewNote';
 import { useMediaQuery } from 'react-responsive';
+import './styles/Dashboard.css'
 
 function DashFiles({ files, filter, setFilter, history }) {
 
@@ -13,6 +13,7 @@ function DashFiles({ files, filter, setFilter, history }) {
     return (
 
         <div style={{width:"95%"}}>
+            
             {screen
             ?
                 <div>
@@ -32,11 +33,11 @@ function DashFiles({ files, filter, setFilter, history }) {
                         
                     </div>
                     <section className='dash-files-box' style={{display: "flex", flexDirection: "row", flexWrap: "wrap", marginTop: '50px' }}>
-                        {files.filter((file) => filter === ""                                                 // if 
-                                                ? file.subject 
-                                                : file.subject.toLowerCase().includes(filter.toLowerCase())   // else if  
-                                                ? file.subject 
-                                                : null                                                        // else      
+                        {files.filter((file) => filter === ""
+                                                ? file.subject
+                                                : file.subject.toLowerCase().includes(filter.toLowerCase())
+                                                ? file.subject
+                                                : null
                             ).map(filter => {
                                 return (
                                     <div className='dash-files' style={{width: "8rem"}}>
@@ -58,40 +59,40 @@ function DashFiles({ files, filter, setFilter, history }) {
                 </div>
             :
             <div>
-            <div style={{display: "flex", flexDirection:"row", justifyContent: "center", alignItems: "baseline", flexWrap: "wrap"}}>
-                <DashFilter 
-                    files = {files}
-                    setFilter= {setFilter}  
-                    filter= {filter}
-                />
+                <div style={{display: "flex", flexDirection:"row", justifyContent: "center", alignItems: "baseline", flexWrap: "wrap"}}>
+                    <DashFilter 
+                        files = {files}
+                        setFilter= {setFilter}  
+                        filter= {filter}
+                    />
 
-                <DashNewNote history={history} />
-            </div>
-            <section className='dash-files-box' style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center"}}>
-                {files.filter((file) => filter === ""                                                 // if 
-                                        ? file.subject 
-                                        : file.subject.toLowerCase().includes(filter.toLowerCase())   // else if  
-                                        ? file.subject 
-                                        : null                                                        // else      
-                    ).map(filter => {
-                        return (
-                            <div className='dash-files' style={{width: "8rem"}}>
-                                <Link to= {`/notes/${filter._id}`} key= {filter.subject} className='dash-file-link' style={{display: "flex", flexDirection: "column", margin: "20px", textDecoration: "none", color: "black"}}>
-                                    <div className='dash-card' style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
-                                        <div style={{display: "flex", justifyContent: "center"}}>
-                                            <img src= {fileImage} alt= {filter.subject} width= "60px" height= "100%"/>
-                                        </div>    
-                                        <div style={{display: "flex", justifyContent: "center", flexWrap: "wrap", textAlign:"center"}}>
-                                            {filter.subject}
+                    <DashNewNote history={history} />
+                </div>
+                <section className='dash-files-box' style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center"}}>
+                    {files.filter((file) => filter === ""
+                                            ? file.subject
+                                            : file.subject.toLowerCase().includes(filter.toLowerCase())
+                                            ? file.subject
+                                            : null
+                        ).map(filter => {
+                            return (
+                                <div className='dash-files' style={{width: "8rem"}}>
+                                    <Link to= {`/notes/${filter._id}`} key= {filter.subject} className='dash-file-link' style={{display: "flex", flexDirection: "column", margin: "20px", textDecoration: "none", color: "black"}}>
+                                        <div className='dash-card' style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
+                                            <div style={{display: "flex", justifyContent: "center"}}>
+                                                <img src= {fileImage} alt= {filter.subject} width= "60px" height= "100%"/>
+                                            </div>    
+                                            <div style={{display: "flex", justifyContent: "center", flexWrap: "wrap", textAlign:"center"}}>
+                                                {filter.subject}
+                                            </div>
                                         </div>
-                                    </div>
-                                </Link>
-                            </div>
-                        )
-                    })
-                }
-            </section>
-        </div>
+                                    </Link>
+                                </div>
+                            )
+                        })
+                    }
+                </section>
+            </div>
             }
                 
         </div>

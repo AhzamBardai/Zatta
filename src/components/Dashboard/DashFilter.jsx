@@ -1,6 +1,6 @@
 import React from 'react';
 import userStore  from '../Users/GetUsers.js';
-import { CloseButton, FormControl } from 'react-bootstrap'
+import { CloseButton, FormControl } from 'react-bootstrap';
 
 
 function DashSearch({ setFilter, filter }) {
