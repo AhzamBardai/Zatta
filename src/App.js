@@ -1,5 +1,6 @@
 import { Route, Switch } from 'react-router-dom'
-import React from 'react'
+import React, { useEffect } from 'react'
+import axios from 'axios'
 
 // Importing Components
 import Landing from './components/Landing/Landing'
@@ -13,6 +14,40 @@ import userStore  from './components/Users/GetUsers';
 function App() {
 
   const isLoggedIn = userStore(state => state.isLoggedIn)
+  const urlNotes = userStore(state => state.urlNotes)
+  const urlTodos = userStore(state => state.urlTodos)
+  const urlUsers = userStore(state => state.urlUsers)
+  const user = userStore(state => state.currentUser)
+
+  const setLogedIn = userStore(state => state.setLoggedIn)
+  const setUser = userStore(state => state.setCurrentUser)
+  const setNotes = userStore(state => state.setNotes) 
+  const setTodos = userStore(state => state.setTodos) 
+
+  const username = window.sessionStorage.getItem('username')
+
+
+  useEffect(() => {
+    if(!isLoggedIn && username){
+      axios.post("https://zatta1.herokuapp.com/api/users/username", { username: username })
+            .then(res => {
+              setLogedIn(true)
+              setUser(res.data[0])
+              return res.data[0]
+            })
+            .then((res) => {
+              axios.get(`https://zatta1.herokuapp.com/api/todos/author/${res._id}`).then(res => {
+                setTodos(res.data)
+              })
+              axios.get(`https://zatta1.herokuapp.com/api/notes/author/${res._id}`).then(res => {
+                setNotes(res.data)
+              })
+            })
+    } else if (!isLoggedIn && !username) {
+      // axios.delete(`https://zatta1.herokuapp.com/api/users/session/${user.userAuth.SessionID}`)
+      axios.put(`https://zatta1.herokuapp.com/api/users/${user._id}`, { userAuth: { isLoggedin: false, sessionID: '' }})
+    }
+  }, [])
 
   return (
     <div >
@@ -25,8 +60,8 @@ function App() {
         <Route exact path="/login" component={ routerProps => <Login history={routerProps.history} />}/>
 
         <Route exact path="/signup" component={ routerProps => <Signup history={routerProps.history} />}/>
-
-        <Route  exact path = '/dashboard' component = { (routerProps) => isLoggedIn ? <Dashboard history={routerProps.history} /> : <Login {...routerProps.history.push('/login')} /> } />
+      
+        <Route exact path = '/dashboard' component = { (routerProps) => isLoggedIn ? <Dashboard history={routerProps.history} /> : <Login {...routerProps.history.push('/login')} /> } />
 
         <Route exact path = '/notes/:id' component={(routerProps) => isLoggedIn ? <MainApp note={routerProps.match.params.id} /> : <Login {...routerProps.history.push('/login') } />} /> 
 

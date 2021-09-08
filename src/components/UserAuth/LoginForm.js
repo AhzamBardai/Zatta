@@ -28,8 +28,9 @@ function LoginForm({ history }) {
         e.preventDefault()
         axios.post(urlUsers + 'login', loginInfo)
             .then(res => {
-                console.log(res.data)
                 if(res.data.length){
+                    const sessionID = res.data
+                    console.log(sessionID)
                     axios.get(urlUsers + `session/${res.data}`)
                         .then(res => {
                             axios.get(urlNotes + `author/${res.data.user._id}`).then(res => {
@@ -44,10 +45,14 @@ function LoginForm({ history }) {
                             return res
                         })
                         .then(res => {
+                            axios.put(urlUsers + `${res._id}`, { userAuth: { isLoggedin: true, SessionID: sessionID }})
+                            return res
+                        })
+                        .then(res => {
                             setUser(res)
+                            window.sessionStorage.setItem('username', res.username)
                         })
                         console.log(res.data)
-                        window.sessionStorage.setItem('sessionID', res.data)
                         setLogedIn(true)
                         history.push('/dashboard')
                     

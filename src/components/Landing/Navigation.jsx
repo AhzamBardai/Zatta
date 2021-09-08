@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link , Switch } from 'react-router-dom'
 import userStore  from '../Users/GetUsers';
+import axios from 'axios'
 
 
 
@@ -12,6 +13,10 @@ function Navigation({ login }) {
     const isLoggedIn = userStore(state => state.isLoggedIn)
     const setNotes = userStore(state => state.setNotes) 
     const setTodos = userStore(state => state.setTodos) 
+    const user = userStore(state => state.currentUser)
+    const urlUsers = userStore(state => state.urlUsers)
+
+
 
 
     const logout = () => {
@@ -19,7 +24,9 @@ function Navigation({ login }) {
         setLogedIn(false)
         setNotes([])
         setTodos([])
-        window.sessionStorage.removeItem('sessionID')
+        window.sessionStorage.removeItem('username')
+        axios.delete(`https://zatta1.herokuapp.com/api/users/session/${user.userAuth.SessionID}`)
+        axios.put(`https://zatta1.herokuapp.com/api/users/${user._id}`, { userAuth: { isLoggedin: false, sessionID: '' }})
     } 
 
     function handleClick(){
