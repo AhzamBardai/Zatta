@@ -25,6 +25,8 @@ function Dashboard({ history }) {
         })        
     } ,[notes])
 
+    
+
     return (
         <div style={{backgroundColor:"#F3F4F6", height: "100vh"}}>
             {screen 

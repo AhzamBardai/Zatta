@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/Dashboard.css';
-import todo from './todo.json';
 import DashFilter from './DashFilter'
 import DashNewTodo from './DashNewTodo';
 import { useMediaQuery } from 'react-responsive';
 import { Button, InputGroup, FormControl, CloseButton } from 'react-bootstrap';
+import axios from 'axios';
+import userStore  from '../Users/GetUsers.js';
 
 
 
@@ -13,12 +14,21 @@ import { Button, InputGroup, FormControl, CloseButton } from 'react-bootstrap';
 
 function DashTodo(props) {
 
-    const [task, setTask] = useState(todo)
+
+    const currentUser = userStore(state => state.currentUser)
+    const todos = userStore(state => state.todos)
+    const urlTodos = userStore(state => state.urlTodos)
+
+    const [task, setTask] = useState(todos)
     const [taskFilter, setTaskFilter] = useState("")
     const screen = useMediaQuery({query: "(min-width: 1024px)"})
     const [check, setCheck] = useState("")
-
-
+    
+    useEffect(() => {
+        axios.get(urlTodos + `author/${currentUser._id}`).then(res => {
+            setTask(res.data)
+        })        
+    } ,[todos])
 
 
 

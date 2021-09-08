@@ -3,6 +3,10 @@ import Modal from 'react-modal';
 import { Button, InputGroup, FormControl, CloseButton } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+import axios from 'axios';
+import userStore  from '../Users/GetUsers.js';
+
+
 
 
 
@@ -13,9 +17,9 @@ function DashNewTodo({ history }) {
 
     const [modal, setModal] = useState(false)
     const [subject, setSubject] = useState('')
-    // const currentUser = userStore(state => state.currentUser)
-    // const setNotes = userStore(state => state.setNotes) 
     const screen = useMediaQuery({query: "(min-width: 1180px)"})
+    const currentUser = userStore(state => state.currentUser)
+    const setTodos = userStore(state => state.setTodos) 
 
     
     const modalStyle = {
@@ -39,18 +43,17 @@ function DashNewTodo({ history }) {
         setModal(false)
     }
 
-    // //change to tasks instead of notes
-    // const newNote = () => {
-    //     const urlNotes = `https://zatta1.herokuapp.com/api/notes/`
-    //     axios.post(urlNotes, { subject: subject, text: '', author: currentUser[0]._id })
-    //         .then((res) => {
-    //             axios.get(urlNotes).then(res => {
-    //                 setNotes(res.data)
-    //             })
-    //             history.push(`/notes/${res.data._id}`)
-    //         })
-    //     closeModal()
-    // }
+    const newTodo = () => {
+        const urlTodo = `https://zatta1.herokuapp.com/api/todos/`
+        axios.post(urlTodo + currentUser._id, { subject: subject, text: '' })
+            .then((res) => {
+                axios.get(urlTodo + `/author/${currentUser._id}`).then(res => {
+                    setTodos(res.data)
+                })
+                setSubject("")
+                closeModal()
+            })
+    }
 
 
     return (
@@ -67,8 +70,7 @@ function DashNewTodo({ history }) {
                     </div>
                     <InputGroup className="mb-3">
                         <FormControl placeholder="Enter Task" style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}} value={subject} onChange={(e) => setSubject(e.target.value)} />
-                        {/* add the onclick to make the task in database */}
-                        <Link to="/dashboard"><Button style={{backgroundColor:"black"}} variant="dark" >Create</Button></Link>
+                        <Link to="/dashboard"><Button style={{backgroundColor:"black"}} variant="dark" onClick={newTodo} >Create</Button></Link>
                     </InputGroup>                
                 </Modal>
             </div>
