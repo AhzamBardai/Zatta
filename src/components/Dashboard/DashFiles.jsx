@@ -31,7 +31,7 @@ function DashFiles({ files, filter, setFilter, history }) {
 
                         
                     </div>
-                    <section className='dash-files-box' style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center"}}>
+                    <section className='dash-files-box' style={{display: "flex", flexDirection: "row", flexWrap: "wrap", marginTop: '50px' }}>
                         {files.filter((file) => filter === ""                                                 // if 
                                                 ? file.subject 
                                                 : file.subject.toLowerCase().includes(filter.toLowerCase())   // else if  

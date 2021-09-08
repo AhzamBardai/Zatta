@@ -3,12 +3,12 @@
     justify-content: center;
 }
 
-.dash-files-box{
+/* .dash-files-box{
     display: grid;
     grid-template-columns: repeat(4, 150px);
     grid-gap: 10px 10px;
     margin-top: 50px;
-}
+} */
 
 .dash-files{
     width: 8rem;

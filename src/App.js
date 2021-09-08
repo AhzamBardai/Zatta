@@ -61,9 +61,9 @@ function App() {
 
         <Route exact path="/signup" component={ routerProps => <Signup history={routerProps.history} />}/>
       
-        <Route exact path = '/dashboard' component = { (routerProps) => isLoggedIn ? <Dashboard history={routerProps.history} /> : <Login {...routerProps.history.push('/login')} /> } />
+        <Route exact path = '/dashboard' component = { (routerProps) => username ? <Dashboard history={routerProps.history} /> : <Login {...routerProps.history.push('/login')} /> } />
 
-        <Route exact path = '/notes/:id' component={(routerProps) => isLoggedIn ? <MainApp note={routerProps.match.params.id} /> : <Login {...routerProps.history.push('/login') } />} /> 
+        <Route exact path = '/notes/:id' component={(routerProps) => username ? <MainApp note={routerProps.match.params.id} /> : <Login {...routerProps.history.push('/login') } />} /> 
 
         {/* will send any other route which doesn't exist above in here and send it to the login page */}
         <Route component={ routerProps => <Login {...routerProps.history.push('/login') } history={routerProps.history} /> } />

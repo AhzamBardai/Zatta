@@ -24,6 +24,7 @@ function SignupForm({ history }) {
             .then(res => {
                 setUser(res.data)
                 setLogedIn(true)
+                window.sessionStorage.setItem('username', res.username)
                 history.push('/dashboard')
             })
             .catch((err) => {
