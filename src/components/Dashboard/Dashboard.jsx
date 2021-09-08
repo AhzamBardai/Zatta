@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Navigation from '../Landing/Navigation';
+import DashNavigation from '../Landing/DashNavigation';
 import DashTodo from './DashTodo';
 import DashFiles from './DashFiles';
 import { useMediaQuery } from 'react-responsive';
@@ -21,7 +21,7 @@ function Dashboard({ history }) {
         axios.get(urlNotes + `author/${currentUser._id}`).then(res => {
             setFiles(res.data)
         })        
-    } ,[notes])
+    } ,[])
 
     
 
@@ -31,7 +31,7 @@ function Dashboard({ history }) {
             {screen 
             ?
                 <div>
-                    <Navigation />
+                    <DashNavigation />
                     <div style={{display: "flex", justifyContent: 'space-around', marginTop:"20px", marginBottom:"20px"}}>
                         <div style={{display:"flex", flexDirection: 'row',justifyContent:"center",overflowY: "auto", height: "83vh", width: "65%", backgroundColor: "white", boxShadow:"0 0 10px darkgray", borderRadius:"15px", padding: "10px", marginLeft:"30px", marginRight:"30px", marginBottom: "10px"}}>
                             <DashFiles 
@@ -49,7 +49,7 @@ function Dashboard({ history }) {
                 </div>
             :
                 <div style={{backgroundColor:"#F3F4F6"}}>
-                    <Navigation />
+                    <DashNavigation />
                     <div style={{display: "flex", justifyContent: 'space-around', marginTop:"10px"}}> 
                         <div style={{flexDirection: 'row', height: "88vh",overflowY: "auto", width: "80%", backgroundColor: "white", boxShadow:"0 0 10px darkgray", borderRadius:"15px", padding: "10px"}}>
                             <DashFiles 
