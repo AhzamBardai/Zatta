@@ -16,6 +16,9 @@ function DashTodo(props) {
     const [task, setTask] = useState(todo)
     const [taskFilter, setTaskFilter] = useState("")
     const screen = useMediaQuery({query: "(min-width: 1024px)"})
+    const [check, setCheck] = useState("")
+
+
 
 
 
@@ -24,12 +27,12 @@ function DashTodo(props) {
         
         <div>
             
-            <div style={{display: "flex", flexDirection:"row", justifyContent: "flex-end", alignItems: "baseline", flexWrap: "wrap"}}>
+            {/* <div style={{display: "flex", flexDirection:"row", justifyContent: "flex-end", alignItems: "baseline", flexWrap: "wrap", marginBottom:"10px"}}> */}
+            <div style={{display: "flex", flexDirection:"row", justifyContent: "center", alignItems: "baseline", flexWrap: "wrap"}}>
                 <DashFilter 
                 filter={taskFilter}
                 setFilter={setTaskFilter}
                 />
-    
                 <DashNewTodo />
             </div>
             <div className='dash-task-container'>
@@ -42,17 +45,12 @@ function DashTodo(props) {
                         } else return null 
                     }).map(filter => {
                         return (
-                            <div className='dash-task'>
-                                <div className="dash-task-name">
-                                    <div className='task-card' style={{display: "flex", justifyContent: "center"}}>
-                                        <span>{filter.subject}</span>
-                                        {/* <InputGroup>
-                                            <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                                            <FormControl aria-label={filter.subject}/>
-                                        </InputGroup> */}
+                                    <div className='task-card' style={{display: "flex", justifyContent: "center", marginTop:"10px"}}>
+                                            <Button variant="outline-dark" style={{height:"25px", width: "25px", justifyContent:"center"}} onClick={() => setCheck("✔")}>{check}</Button>
+                                            <div style={{display:"flex", flexWrap:"wrap", justifyContent:"flex-start", width:"88%", marginLeft:"10px", height:"100%"}}>
+                                                {filter.subject}
+                                            </div>
                                     </div>
-                                </div>
-                            </div>
                         )
                     })
                     }

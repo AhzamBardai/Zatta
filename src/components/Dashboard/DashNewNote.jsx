@@ -8,6 +8,7 @@ import { useMediaQuery } from 'react-responsive';
 import todo from './todo.json';
 import DashTodoFilter from './DashFilter'
 import fileImage from '../images/file.png';
+import DashTodo from './DashTodo';
 
 
 
@@ -28,7 +29,7 @@ function DashNewNote({ history, filter }) {
 
     const modalStyle = {
         content: {
-          top: '25%',
+          top: '35%',
           left: '50%',
           right: 'auto',
           bottom: 'auto',
@@ -37,6 +38,18 @@ function DashNewNote({ history, filter }) {
           zIndex: 2
         },
       };
+
+      const taskModalStyle = {
+        content: {
+            top: '45%',
+            left: '50%',
+            right: 'auto',
+            bottom: 'auto',
+            marginRight: '-50%',
+            transform: 'translate(-50%, -50%)',
+            zIndex: 2
+          },
+      }
 
 
     function openModal() {
@@ -69,6 +82,7 @@ function DashNewNote({ history, filter }) {
             })
     }
 
+    
     return (
         
         <div>
@@ -90,30 +104,6 @@ function DashNewNote({ history, filter }) {
                             </InputGroup>                
                         </Modal>
                     </div>
-                    <section className='dash-files-box' style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center"}}>
-                        {notes.filter((file) => filter === ""                                                 // if 
-                                                ? file.subject 
-                                                : file.subject.toLowerCase().includes(filter.toLowerCase())   // else if  
-                                                ? file.subject 
-                                                : null                                                        // else      
-                            ).map(filter => {
-                                return (
-                                    <div className='dash-files' style={{width: "8rem"}}>
-                                        <Link to= {`/notes/${filter._id}`} key= {filter.subject} className='dash-file-link' style={{display: "flex", flexDirection: "column", margin: "20px", textDecoration: "none", color: "black"}}>
-                                            <div className='dash-card' style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
-                                                <div style={{display: "flex", justifyContent: "center"}}>
-                                                    <img src= {fileImage} alt= {filter.subject} width= "60px" height= "100%"/>
-                                                </div>    
-                                                <div style={{display: "flex", justifyContent: "center", flexWrap: "wrap", textAlign:"center"}}>
-                                                    {filter.subject}
-                                                </div>
-                                            </div>
-                                        </Link>
-                                    </div>
-                                )
-                            })
-                        }
-                    </section>
                 </div>
             :
                 <div>
@@ -134,15 +124,26 @@ function DashNewNote({ history, filter }) {
                         </Modal>
                     </div>
                     <div className= "modalDiv">
-                        <Modal isOpen= {taskModal} onRequestClose={() => setTaskModal(false)} style={modalStyle}>
+                        <Modal isOpen= {taskModal} onRequestClose={() => setTaskModal(false)} style={taskModalStyle}>
                             <div style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}}>
                                 <h3>Task List</h3>   
                                 <CloseButton onClick={closeTaskModal}/>
                             </div>
-                            <InputGroup className="mb-3">
+                            {/* <InputGroup className="mb-3">
                                 <FormControl placeholder="Enter Task" style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}} value={subject} onChange={(e) => setSubject(e.target.value)} />
                                 <Link to="/dashboard"><Button style={{backgroundColor:"black"}} variant="dark">Create</Button></Link>
-                            </InputGroup>
+                            </InputGroup> */}
+                        <DashTodo />
+
+                            {/* <div style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}}>
+                                <h3>Task List</h3>   
+                                <CloseButton onClick={closeTaskModal}/>
+                                </div>
+                                <InputGroup className="mb-3">
+                                <FormControl placeholder="Enter Task" style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}} value={subject} onChange={(e) => setSubject(e.target.value)} />
+                                <Link to="/dashboard"><Button style={{backgroundColor:"black"}} variant="dark">Create</Button></Link>
+                                </InputGroup>
+                                
                             <DashTodoFilter 
                                 taskFilter={taskFilter}
                                 setTaskFilter={setTaskFilter}
@@ -171,7 +172,7 @@ function DashNewNote({ history, filter }) {
                                 })
                                 }
                             </section>
-                        </div>               
+                        </div>                */}
                         </Modal>
                     </div>
                 </div>

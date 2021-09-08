@@ -12,11 +12,11 @@ function DashFiles({ files, filter, setFilter, history }) {
 
     return (
 
-        <div>
+        <div style={{width:"95%"}}>
             {screen
             ?
                 <div>
-                    <div style={{display: "flex", flexDirection:"row", justifyContent: "center", alignItems: "baseline", flexWrap: "wrap" }}>
+                    <div style={{display: "flex", flexDirection:"row", justifyContent: "center", alignItems: "baseline", flexWrap: "wrap"}}>
                         <DashFilter 
                             files = {files}
                             setFilter= {setFilter}  
@@ -28,6 +28,8 @@ function DashFiles({ files, filter, setFilter, history }) {
                         filter={filter}
                         history={history}
                         />
+
+                        
                     </div>
                     <section className='dash-files-box' style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center"}}>
                         {files.filter((file) => filter === ""                                                 // if 
@@ -56,7 +58,7 @@ function DashFiles({ files, filter, setFilter, history }) {
                 </div>
             :
             <div>
-            <div style={{display: "flex", flexDirection:"row", justifyContent: "center", alignItems: "baseline", flexWrap: "wrap" }}>
+            <div style={{display: "flex", flexDirection:"row", justifyContent: "center", alignItems: "baseline", flexWrap: "wrap"}}>
                 <DashFilter 
                     files = {files}
                     setFilter= {setFilter}  

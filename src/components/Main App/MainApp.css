@@ -11,6 +11,10 @@
     margin: 20px
 }
 
+.notes-header div {
+  margin-left: 10px;
+}
+
 .save-note {
     height: 3rem;
     width: 10rem;

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
 
+
 //https://www.npmjs.com/package/react-modal#installation
 
 
@@ -19,12 +20,13 @@ function DashNewTodo({ history }) {
     
     const modalStyle = {
         content: {
-            top: '25%',
+            top: '35%',
             left: '50%',
             right: 'auto',
             bottom: 'auto',
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
+            overflowY: "auto",
             zIndex: 2
         },
     };
