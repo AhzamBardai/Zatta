@@ -5,8 +5,6 @@ import axios from 'axios';
 import userStore  from '../Users/GetUsers.js';
 import { Link } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
-import DashTodoFilter from './DashFilter'
-import fileImage from '../images/file.png';
 import DashTodo from './DashTodo';
 
 
@@ -19,7 +17,6 @@ function DashNewNote({ history, filter }) {
     const setNotes = userStore(state => state.setNotes) 
     const notes = userStore(state => state.notes)
 
-    // todo
     const [taskModal, setTaskModal] = useState(false)
     const screen = useMediaQuery({query: "(min-width: 1024px)"})
 
@@ -83,6 +80,7 @@ function DashNewNote({ history, filter }) {
     return (
         
         <div>
+
             {screen
             ?
                 <div>
@@ -126,54 +124,12 @@ function DashNewNote({ history, filter }) {
                                 <h3>Task List</h3>   
                                 <CloseButton onClick={closeTaskModal}/>
                             </div>
-                            {/* <InputGroup className="mb-3">
-                                <FormControl placeholder="Enter Task" style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}} value={subject} onChange={(e) => setSubject(e.target.value)} />
-                                <Link to="/dashboard"><Button style={{backgroundColor:"black"}} variant="dark">Create</Button></Link>
-                            </InputGroup> */}
-                        <DashTodo />
-
-                            {/* <div style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}}>
-                                <h3>Task List</h3>   
-                                <CloseButton onClick={closeTaskModal}/>
-                                </div>
-                                <InputGroup className="mb-3">
-                                <FormControl placeholder="Enter Task" style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}} value={subject} onChange={(e) => setSubject(e.target.value)} />
-                                <Link to="/dashboard"><Button style={{backgroundColor:"black"}} variant="dark">Create</Button></Link>
-                                </InputGroup>
-                                
-                            <DashTodoFilter 
-                                taskFilter={taskFilter}
-                                setTaskFilter={setTaskFilter}
-                            />
-                            <div className='dash-task-container'>
-                            <section className='dash-task-box'>
-                                {task.filter((file) => {
-                                    if (taskFilter === "") {
-                                        return file.subject
-                                    } else if (file.subject.toLowerCase().includes(taskFilter.toLowerCase())) {
-                                        return file.subject
-                                    } else return null 
-                                }).map(filter => {
-                                    return (
-                                        <div className='dash-task'>
-                                            <div className="dash-task-name">
-                                                <div className='task-card' style={{display: "flex", justifyContent: "center", marginTop: "5px"}}>
-                                                <InputGroup>
-                                                    <InputGroup.Checkbox aria-label="Checkbox for following text input" />
-                                                    <FormControl aria-label={filter.subject}/>
-                                                </InputGroup>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    )
-                                })
-                                }
-                            </section>
-                        </div>                */}
+                            <DashTodo />
                         </Modal>
                     </div>
                 </div>
             }
+
         </div>
     );
 }
