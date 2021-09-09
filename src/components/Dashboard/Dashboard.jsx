@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import DashNavigation from '../Landing/DashNavigation';
 import DashTodo from './DashTodo';
 import DashFiles from './DashFiles';
@@ -9,18 +9,26 @@ import axios from 'axios';
 function Dashboard({ history }) {
 
     const currentUser = userStore(state => state.currentUser)
-    const notes = userStore(state => state.notes)
+
+    // notes states
     const urlNotes = userStore(state => state.urlNotes)
-    const isLoggedIn = userStore(state => state.isLoggedIn)
-    const [files, setFiles] = useState(notes)
-    const [filter, setFilter] = useState("")
-    
+    const setNotes = userStore(state => state.setNotes)
+
+    //todo states
+    const urlTodos = userStore(state => state.urlTodos)
+    const setTodos = userStore(state => state.setTodos)
+
+
+
     const screen = useMediaQuery({query: "(min-width: 1024px)"})
 
     useEffect(() => {
         axios.get(urlNotes + `author/${currentUser._id}`).then(res => {
-            setFiles(res.data)
-        })        
+            setNotes(res.data)
+        })
+        axios.get(urlTodos + `author/${currentUser._id}`).then(res => {
+            setTodos(res.data)
+        })     
     } ,[])
 
     
@@ -35,10 +43,6 @@ function Dashboard({ history }) {
                     <div style={{display: "flex", justifyContent: 'space-around', marginTop:"20px", marginBottom:"20px"}}>
                         <div style={{display:"flex", flexDirection: 'row',justifyContent:"center",overflowY: "auto", height: "83vh", width: "65%", backgroundColor: "white", boxShadow:"0 0 10px darkgray", borderRadius:"15px", padding: "10px", marginLeft:"30px", marginRight:"30px", marginBottom: "10px"}}>
                             <DashFiles 
-                                filter= {filter}
-                                files= {files}
-                                setFiles= {setFiles}
-                                setFilter= {setFilter}
                                 history={history}
                             />
                         </div>
@@ -53,10 +57,6 @@ function Dashboard({ history }) {
                     <div style={{display: "flex", justifyContent: 'space-around', marginTop:"10px"}}> 
                         <div style={{flexDirection: 'row', height: "88vh",overflowY: "auto", width: "80%", backgroundColor: "white", boxShadow:"0 0 10px darkgray", borderRadius:"15px", padding: "10px"}}>
                             <DashFiles 
-                                filter= {filter}
-                                files= {files}
-                                setFiles= {setFiles}
-                                setFilter= {setFilter}
                                 history={history}
                             />
                         </div>

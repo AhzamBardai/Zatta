@@ -13,8 +13,13 @@ function DashNewTodo({ history }) {
     const [modal, setModal] = useState(false)
     const [subject, setSubject] = useState('')
     const screen = useMediaQuery({query: "(min-width: 1197px)"})
+   
     const currentUser = userStore(state => state.currentUser)
-    const setTodos = userStore(state => state.setTodos) 
+
+    //todo states
+    const urlTodos = userStore(state => state.urlTodos)
+    const setTodos = userStore(state => state.setTodos)
+
 
     
     const modalStyle = {
@@ -40,10 +45,9 @@ function DashNewTodo({ history }) {
     }
 
     const newTodo = () => {
-        const urlTodo = `https://zatta1.herokuapp.com/api/todos/`
-        axios.post(urlTodo + currentUser._id, { subject: subject, text: '' })
+        axios.post(urlTodos + currentUser._id, { subject: subject, text: '' })
             .then((res) => {
-                axios.get(urlTodo + `/author/${currentUser._id}`).then(res => {
+                axios.get(urlTodos + `/author/${currentUser._id}`).then(res => {
                     setTodos(res.data)
                 })
                 setSubject("")
