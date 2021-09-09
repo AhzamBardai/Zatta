@@ -21,7 +21,7 @@ export default function MainApp({ note }) {
     //media queries
     const width550 = useMediaQuery({query: "(min-width: 550px)"})
     const width440 = useMediaQuery({query: "(min-width: 440px)"})
-    const width300 = useMediaQuery({query: "(min-width: 330px)"})
+    // const width300 = useMediaQuery({query: "(min-width: 330px)"})
 
 
 

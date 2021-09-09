@@ -49,13 +49,25 @@
 
 .responsive-dashboard-files{
     flex-direction: row;
-    height: 85vh;
+    height: 80vh;
     overflow-y: auto;
     width: 80%;
     background-color: white;
     box-shadow: 0 0 10px darkgray;
     border-radius: 15px;
     padding: 10px;
+}
+
+@media screen and (max-height: 530px) {
+    .responsive-dashboard-files{
+        height: 75vh;
+    }
+}
+
+@media screen and (max-height: 400px) {
+    .responsive-dashboard-files{
+        height: 70vh;
+    }
 }
 
 

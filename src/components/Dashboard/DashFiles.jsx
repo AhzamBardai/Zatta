@@ -13,7 +13,7 @@ function DashFiles({  history }) {
 
 
     const currentUser = userStore(state => state.currentUser)
-    const screen = useMediaQuery({query: "(min-width: 1024px)"})
+    // const screen = useMediaQuery({query: "(min-width: 1024px)"})
 
     // notes states
     const urlNotes = userStore(state => state.urlNotes)
