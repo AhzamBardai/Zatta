@@ -5,6 +5,8 @@ import axios from 'axios'
 import { Button, FormControl } from 'react-bootstrap'
 import Modal from 'react-modal';
 import './MainApp.css'
+import userStore  from '../Users/GetUsers.js';
+
 
 
 export default function MainApp({ note }) {
@@ -13,8 +15,7 @@ export default function MainApp({ note }) {
     const [subject, setSubject] = useState('')
     const urlNotes = 'https://zatta1.herokuapp.com/api/notes/'
     const [modal, setModal] = useState(false)
-
-
+    const currentUser = userStore(state => state.currentUser)
 
     useEffect(() => {
         axios.get(urlNotes+ '/note/' + note).then(res => {
@@ -28,11 +29,15 @@ export default function MainApp({ note }) {
         e.preventDefault()
         const url = window.location.pathname.split('/')
         axios.put(urlNotes + url[2], { subject: subject })
-        
+
     }
 
    function deleteNote()  {
-        axios.delete(urlNotes + note)
+        axios.delete(urlNotes + note).then(() => {
+            axios.get(urlNotes + `author/${currentUser._id}`)
+                .then(res => setNotes(res.data))
+            console.log('delete note') 
+        })
     }
 
     const modalStyle = {
@@ -67,7 +72,7 @@ export default function MainApp({ note }) {
                     </div>
                     <div style={{display:"flex", justifyContent:"center", alignItems:"baseline"}}>
                         <Button variant="outline-dark" onClick={() => setModal(false)}>Cancel</Button>
-                        <Link to="/dashboard"><Button variant="danger" onClick={() => deleteNote()}>Delete</Button></Link>
+                        <Link to='/dashboard'><Button variant="danger" onClick={() => deleteNote()}>Delete</Button></Link>
                     </div>    
                 </Modal>
             </div>

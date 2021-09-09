@@ -12,10 +12,14 @@ const userStore = create(set => ({
     notes: [],
     todos: [],
     currentUser: {},
+    notesFilter: '',
+    todosFilter: '',
     setCurrentUser: (currentUser) => set(state => ({...state, currentUser})),
     setLoggedIn: (isLoggedIn) => set(state => ({...state, isLoggedIn})),
     setNotes: (notes) => set(state => ({...state, notes})),
     setTodos: (todos) => set(state => ({...state, todos})),
+    setNotesFilter: (notesFilter) => set(state => ({...state, notesFilter})),
+    setTodosFilter: (todosFilter) => set(state => ({...state, todosFilter}))
 }))
 
 if (process.env.NODE_ENV === 'development') {
