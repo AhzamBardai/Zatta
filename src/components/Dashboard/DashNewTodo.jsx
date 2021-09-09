@@ -69,7 +69,7 @@ function DashNewTodo({ history }) {
                         <h3>New Task</h3>   
                         <CloseButton onClick={closeModal}/>
                     </div>
-                    <InputGroup className="mb-3">
+                    <InputGroup className="mb-3" style={{marginTop:"20px"}}>
                         <FormControl placeholder="Enter Task" style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}} value={subject} onChange={(e) => setSubject(e.target.value)} />
                         <Link to="/dashboard"><Button style={{backgroundColor:"black"}} variant="dark" onClick={newTodo} >Create</Button></Link>
                     </InputGroup>                

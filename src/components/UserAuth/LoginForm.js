@@ -16,7 +16,6 @@ function LoginForm({ history }) {
     const setLogedIn = userStore(state => state.setLoggedIn)
     const setUser = userStore(state => state.setCurrentUser)
 
-
     const [loginInfo, setLoginInfo] = useState({
         username: '',
         password: '',

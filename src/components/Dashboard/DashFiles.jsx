@@ -4,6 +4,9 @@ import fileImage from '../images/file.png'
 import DashFilter from './DashFilter';
 import DashNewNote from './DashNewNote';
 import { useMediaQuery } from 'react-responsive';
+import DashFileList from './DashFileList';
+import userStore  from '../Users/GetUsers.js';
+import axios from 'axios';
 import './styles/Dashboard.css'
 import userStore  from '../Users/GetUsers.js';
 import axios from 'axios';
@@ -12,6 +15,11 @@ import DashFilesMap from './DashFilesMap';
 
 function DashFiles({  history }) {
 
+
+
+    const currentUser = userStore(state => state.currentUser)
+    const urlNotes = userStore(state => state.urlNotes)
+    const setNotes = userStore(state => state.setNotes)
     const screen = useMediaQuery({query: "(min-width: 1024px)"})
     const currentUser = userStore(state => state.currentUser)
 
@@ -27,6 +35,14 @@ function DashFiles({  history }) {
             setNotes(res.data)
         })       
     } ,[])
+
+
+    useEffect(() => {     
+        axios.get(urlNotes + `author/${currentUser._id}`).then(res => {
+            setNotes(res.data)
+    })
+    } ,[])
+
 
     return (
 
