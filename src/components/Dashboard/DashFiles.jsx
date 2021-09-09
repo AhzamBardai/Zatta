@@ -1,6 +1,4 @@
 import React,{ useEffect } from 'react';
-import { Link } from 'react-router-dom'
-import fileImage from '../images/file.png'
 import DashFilter from './DashFilter';
 import DashNewNote from './DashNewNote';
 import { useMediaQuery } from 'react-responsive';
@@ -20,7 +18,6 @@ function DashFiles({  history }) {
     // notes states
     const urlNotes = userStore(state => state.urlNotes)
     const setNotes = userStore(state => state.setNotes)
-    const notes = userStore(state => state.notes)
     const setNotesFilter = userStore(state => state.setNotesFilter)
     const notesFilter = userStore(state => state.notesFilter)
 
@@ -28,14 +25,7 @@ function DashFiles({  history }) {
         axios.get(urlNotes + `author/${currentUser._id}`).then(res => {
             setNotes(res.data)
         })       
-    } ,[])
-
-
-    useEffect(() => {     
-        axios.get(urlNotes + `author/${currentUser._id}`).then(res => {
-            setNotes(res.data)
-    })
-    } ,[])
+    } ,[currentUser._id, setNotes, urlNotes])
 
 
     return (

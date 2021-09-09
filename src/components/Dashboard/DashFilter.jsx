@@ -1,6 +1,5 @@
 import React from 'react';
 import { CloseButton, FormControl } from 'react-bootstrap';
-import axios from 'axios';
 
 
 

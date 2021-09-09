@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import DashFilter from './DashFilter'
 import DashNewTodo from './DashNewTodo';
-import { useMediaQuery } from 'react-responsive';
-import { Button, InputGroup } from 'react-bootstrap';
+// import { useMediaQuery } from 'react-responsive';
+import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import userStore  from '../Users/GetUsers.js';
 import './styles/Dashboard.css';
@@ -23,15 +23,14 @@ function DashTodo(props) {
     const todosFilter = userStore(state => state.todosFilter)
 
 
-    const screen = useMediaQuery({query: "(min-width: 1024px)"})
-    const [check, setCheck] = useState("")
+    // const screen = useMediaQuery({query: "(min-width: 1024px)"})
 
     
     useEffect(() => {
         axios.get(urlTodos + `author/${currentUser._id}`).then(res => {
             setTodos(res.data)
         })       
-    } ,[])
+    } ,[currentUser._id, setTodos, urlTodos])
 
 
     function deleteNote(id)  {
@@ -75,7 +74,7 @@ function DashTodo(props) {
                         } else return null 
                         }).map((filter, index) => {
                             return (
-                                <div className='task-card' style={{display: "flex", justifyContent: "center",alignItems:"center" , marginTop:"10px"}}>
+                                <div className='task-card' key={index + 1} style={{display: "flex", justifyContent: "center",alignItems:"center" , marginTop:"10px"}}>
                                     <label style={filter.complete ? {cursor:'pointer', display:"flex", flexWrap:"wrap", justifyContent:"flex-start", width:"88%", marginLeft:"10px", height:"100%", textDecoration:"line-through", color:"gray"} : {cursor:'pointer', display:"flex", flexWrap:"wrap", justifyContent:"flex-start", width:"88%", marginLeft:"10px", height:"100%"}}>
                                         <input style={{height:"25px", width:"25px", marginRight:"10px", cursor:'pointer'}} type="checkbox" checked={filter.complete} onChange={(e) => checkbox(filter._id, e.target.checked)}/>    
                                         {filter.subject}

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import DashNavigation from '../Landing/DashNavigation';
+import DashNavigation from './DashNavigation';
 import DashTodo from './DashTodo';
 import DashFiles from './DashFiles';
 import { useMediaQuery } from 'react-responsive';
@@ -19,17 +19,18 @@ function Dashboard({ history }) {
     const setTodos = userStore(state => state.setTodos)
 
 
-
     const screen = useMediaQuery({query: "(min-width: 1024px)"})
 
     useEffect(() => {
-        axios.get(urlNotes + `author/${currentUser._id}`).then(res => {
-            setNotes(res.data)
-        })
-        axios.get(urlTodos + `author/${currentUser._id}`).then(res => {
-            setTodos(res.data)
-        })     
-    } ,[])
+        if(currentUser._id){
+            axios.get(urlNotes + `author/${currentUser._id}`).then(res => {
+                setNotes(res.data)
+            }).catch(() => console.log('dash useeffect'))
+            axios.get(urlTodos + `author/${currentUser._id}`).then(res => {
+                setTodos(res.data)
+            }).catch(() => console.log('dash useeffect'))
+        }
+    } ,[currentUser._id, setNotes, setTodos, urlNotes, urlTodos])
 
     
 

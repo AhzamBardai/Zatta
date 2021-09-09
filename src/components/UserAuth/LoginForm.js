@@ -9,7 +9,6 @@ function LoginForm({ history }) {
     const urlNotes = userStore(state => state.urlNotes)
     const urlTodos = userStore(state => state.urlTodos)
     const urlUsers = userStore(state => state.urlUsers)
-    const user = userStore(state => state.currentUser)
 
     const setNotes = userStore(state => state.setNotes) 
     const setTodos = userStore(state => state.setTodos) 
@@ -67,20 +66,20 @@ function LoginForm({ history }) {
 
 
     return (
-        <form class="mt-10" method="POST" onSubmit={handleSubmit}>
+        <form className="mt-10" method="POST" onSubmit={handleSubmit}>
                             
-        <label for="username" class="block text-xs font-semibold text-gray-600 uppercase">Username</label>
-        <input id="username" type="text" name="username" placeholder="username" autocomplete="username"
-            class="block w-full py-3 px-2 mt-2 
+        <label htmlFor="username" className="block text-xs font-semibold text-gray-600 uppercase">Username</label>
+        <input id="username" type="text" name="username" placeholder="username" autoComplete="username"
+            className="block w-full py-3 px-2 mt-2 
             text-gray-800 appearance-none 
             border-solid border-2 rounded-2xl border-gray-100
             focus:text-gray-500 focus:outline-none focus:border-gray-200"
             required value={loginInfo.username} onChange={(e) => {e.preventDefault(); setLoginInfo({...loginInfo, username: e.target.value})}} />
 
         
-        <label for="password" class="block mt-2 text-xs font-semibold text-gray-600 uppercase">Password</label>
-        <input id="password" type="password" name="password" placeholder="password" autocomplete="current-password"
-            class="block w-full py-3 px-2 mt-2 mb-4
+        <label htmlFor="password" className="block mt-2 text-xs font-semibold text-gray-600 uppercase">Password</label>
+        <input id="password" type="password" name="password" placeholder="password" autoComplete="current-password"
+            className="block w-full py-3 px-2 mt-2 mb-4
             text-gray-800 appearance-none 
             border-solid border-2 rounded-2xl border-gray-100
             focus:text-gray-500 focus:outline-none focus:border-gray-200"
@@ -88,7 +87,7 @@ function LoginForm({ history }) {
 
         
         <button type="submit"
-            class="w-full py-3 mt-10 bg-black rounded-md
+            className="w-full py-3 mt-10 bg-black rounded-md
             font-medium text-white uppercase
             focus:outline-none hover:bg-gray-700 hover:shadow-none"
             >
@@ -96,16 +95,16 @@ function LoginForm({ history }) {
         </button>
 
         
-        <div class="sm:flex sm:flex-wrap mt-8 sm:mb-4 text-sm text-center">
-            <a href="forgot-password" class="flex-2 underline">
+        <div className="sm:flex sm:flex-wrap mt-8 sm:mb-4 text-sm text-center">
+            <a href="forgot-password" className="flex-2 underline">
                 Forgot password?
             </a>
 
-            <p class="flex-1 text-gray-500 text-md mx-4 my-1 sm:my-auto">
+            <p className="flex-1 text-gray-500 text-md mx-4 my-1 sm:my-auto">
                 or
             </p>
 
-            <Link to='/signup' class="flex-2 underline">
+            <Link to='/signup' className="flex-2 underline">
                 Create an Account
             </Link>
         </div>

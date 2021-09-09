@@ -28,26 +28,28 @@ function App() {
 
 
   useEffect(() => {
-    if(!isLoggedIn && username){
-      axios.post("https://zatta1.herokuapp.com/api/users/username", { username: username })
+    if(!isLoggedIn && username ){
+      axios.post(urlUsers + "username", { username: username })
             .then(res => {
               setLogedIn(true)
               setUser(res.data[0])
               return res.data[0]
             })
             .then((res) => {
-              axios.get(`https://zatta1.herokuapp.com/api/todos/author/${res._id}`).then(res => {
+              axios.get(`${urlTodos}author/${res._id}`).then(res => {
                 setTodos(res.data)
               })
-              axios.get(`https://zatta1.herokuapp.com/api/notes/author/${res._id}`).then(res => {
+              axios.get(`${urlNotes}author/${res._id}`).then(res => {
                 setNotes(res.data)
-              })
-            })
-    } else if (!isLoggedIn && !username) {
+              }).catch((err) => console.log('app useeffect', err))
+
+            }).catch((err) => console.log('app useeffect', err))
+
+        } else if (!isLoggedIn && !username) {
       // axios.delete(`https://zatta1.herokuapp.com/api/users/session/${user.userAuth.SessionID}`)
       axios.put(`https://zatta1.herokuapp.com/api/users/${user._id}`, { userAuth: { isLoggedin: false, sessionID: '' }})
     }
-  }, [])
+  }, [isLoggedIn, setLogedIn, setNotes, setTodos, setUser, urlNotes, urlTodos, urlUsers, user._id, username])
 
   return (
     <div >

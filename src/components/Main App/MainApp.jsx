@@ -6,7 +6,6 @@ import { Button, FormControl } from 'react-bootstrap'
 import Modal from 'react-modal';
 import './MainApp.css'
 import userStore  from '../Users/GetUsers.js';
-import { render } from '@testing-library/react'
 
 
 
@@ -24,7 +23,7 @@ export default function MainApp({ note }) {
             setSubject(res.data.subject)
         }) 
 
-    },[])
+    },[note])
 
     const subjectChange = (e) => {
         e.preventDefault()

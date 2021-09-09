@@ -18,11 +18,11 @@ function DashFilesMap() {
                 : file.subject.toLowerCase().includes(notesFilter.toLowerCase())
                 ? file.subject
                 : null
-            ).map(filter => (
+            ).map((filter, index) => (
 
             
-                <div className='dash-files' style={{width: "8rem"}}>
-                    <Link to= {`/notes/${filter._id}`} key= {filter.subject} className='dash-file-link' style={{display: "flex", flexDirection: "column", margin: "20px", textDecoration: "none", color: "black"}}>
+                <div className='dash-files' style={{width: "8rem"}} key={index + 1}>
+                    <Link to= {`/notes/${filter._id}`} className='dash-file-link' style={{display: "flex", flexDirection: "column", margin: "20px", textDecoration: "none", color: "black"}}>
                         <div className='dash-card' style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
                             
                             <div style={{display: "flex", justifyContent: "center"}}>
