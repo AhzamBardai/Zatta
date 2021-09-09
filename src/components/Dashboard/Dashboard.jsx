@@ -23,6 +23,7 @@ function Dashboard({ history }) {
 
 
     const screen = useMediaQuery({query: "(min-width: 1024px)"})
+    const height890 = useMediaQuery({query: "(min-height: 890px)"})
 
     useEffect(() => {
         if(currentUser._id){
@@ -38,7 +39,7 @@ function Dashboard({ history }) {
     
 
     return (
-        <div className="dashboard-background">
+        <div className="dashboard-background" style={height890 ? {height: '100vh'} : {height: '100%'}}>
 
             {screen 
             ?

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import DashFilter from './DashFilter'
 import DashNewTodo from './DashNewTodo';
-// import { useMediaQuery } from 'react-responsive';
+import { useMediaQuery } from 'react-responsive';
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import userStore  from '../Users/GetUsers.js';
@@ -24,6 +24,7 @@ function DashTodo(props) {
 
 
     // const screen = useMediaQuery({query: "(min-width: 1024px)"})
+    const screen = useMediaQuery({query: "(min-width: 1024px)"})
 
     
     useEffect(() => {
@@ -55,7 +56,7 @@ function DashTodo(props) {
 
     return (
         
-        <div>
+        <div >
             
             <div className="todo-header-container">
                 <DashFilter 
@@ -64,8 +65,8 @@ function DashTodo(props) {
                 />
                 <DashNewTodo />
             </div>
-            <div>
-                <section>
+            <div >
+                <section className={ !screen ? 'todo-container-resp' : 'todo-container'}>
                     {todos.filter((file) => {
                         if (todosFilter === "") {
                             return file.subject //

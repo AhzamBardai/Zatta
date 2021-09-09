@@ -148,6 +148,19 @@
     justify-content: center;
 }
 
+.todo-container {
+    height: 30rem;
+    overflow-y: auto;
+
+}
+
+.todo-container-resp{
+    height: 15rem;
+    overflow-y: auto;
+
+}
+
+
 
 /* Todo */
 .todo-header-container {
@@ -181,3 +194,15 @@
     justify-content: space-between;
     align-items: baseline;
 }
+
+/* Taken from w3 schools  */
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .dashboard-files-container::-webkit-scrollbar, .dashboard-todo-container::-webkit-scrollbar, .responsive-dashboard-files::-webkit-scrollbar, .todo-container::-webkit-scrollbar, .todo-container-resp::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .dashboard-files-container, .dashboard-todo-container, .responsive-dashboard-files, .todo-container, .todo-container-resp {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
