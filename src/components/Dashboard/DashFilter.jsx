@@ -15,7 +15,7 @@ function DashSearch({ setFilter, filter }) {
         <div>
             
             <form style={{display: "flex", flexDirection: 'row',alignItems:"center", borderRadius:"5px", border:"1px solid #CCC"}}>
-                <FormControl placeholder="Filter" value={filter} onChange={e => {setFilter(e.target.value)}} style={{marginRight: '10px', border:"none"}} />
+                <FormControl placeholder="Filter" value={filter} onChange={e => {setFilter(e.target.value)}} style={{marginRight: '4px', border:"none"}} />
                 <CloseButton onClick={(e) => resetFilter(e)}/>
             </form>
 
