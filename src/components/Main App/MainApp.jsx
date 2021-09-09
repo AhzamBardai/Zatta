@@ -68,7 +68,7 @@ export default function MainApp({ note }) {
     return (
         <div className='main-note-pg'>
             <div className='notes-header'>
-                <form onSubmit={subjectChange} style={{display: "flex", flexDirection: 'row',alignItems:"center", borderRadius:"5px", border:"1px solid #CCC"}}>
+                <form className='main-subject' onSubmit={subjectChange} style={{display: "flex", flexDirection: 'row',alignItems:"center", borderRadius:"5px", border:"1px solid #CCC"}}>
                     <FormControl style={{border:"none"}} className='main-note-sbj' type='text' value={subject} onChange={(e) => setSubject(e.target.value)} />
                     <Button type='Submit' variant="outline-dark" style={{marginLeft: '3px'}}>
                         { width440 ? 'Save' : saveSVG }
