@@ -1,5 +1,4 @@
 import React from 'react';
-import userStore  from '../Users/GetUsers.js';
 import { CloseButton, FormControl } from 'react-bootstrap';
 import axios from 'axios';
 

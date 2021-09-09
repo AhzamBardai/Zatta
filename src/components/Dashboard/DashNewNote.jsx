@@ -69,12 +69,11 @@ function DashNewNote({ history, filter }) {
                                 <h3>Task List</h3>   
                                 <CloseButton onClick={closeTaskModal}/>
                             </div>
-                            <DashTodo />
+                        <DashTodo />
                         </Modal>
                     </div>
                 </div>
             }
-
         </div>
     );
 }
