@@ -21,15 +21,15 @@ function DashFilesMap() {
             ).map(filter => (
 
             
-                <div className='dash-files' style={{width: "8rem"}}>
-                    <Link to= {`/notes/${filter._id}`} key= {filter.subject} className='dash-file-link' style={{display: "flex", flexDirection: "column", margin: "20px", textDecoration: "none", color: "black"}}>
-                        <div className='dash-card' style={{display: "flex", flexDirection: "column", justifyContent: "center"}}>
+                <div className='files'>
+                    <Link to= {`/notes/${filter._id}`} key= {filter.subject} className='file-link'>
+                        <div className='file-card'>
                             
-                            <div style={{display: "flex", justifyContent: "center"}}>
-                                <img src= {fileImage} alt= {filter.subject} width= "60px" height= "100%"/>
+                            <div className="file-image-container">
+                                <img className="file-image" src= {fileImage} alt= {filter.subject}/>
                             </div> 
 
-                            <div style={{display: "flex", justifyContent: "center", flexWrap: "wrap", textAlign:"center"}}>
+                            <div className="file-name">
                                 {filter.subject}
                             </div>
 

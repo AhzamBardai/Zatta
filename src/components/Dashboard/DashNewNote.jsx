@@ -47,7 +47,7 @@ function DashNewNote({ history, filter }) {
             {screen
             ?
                 <div>
-                    <div style={{display: "flex", justifyContent: "center"}}>
+                    <div className="newNote-button-container">
                         <Button style={{display: "flex", justifyContent: "right", marginLeft:"10px", backgroundColor:"black"}} onClick={openModal} variant="dark">{screen ? "New Note" : "+"}</Button>
                     </div>
 
@@ -63,13 +63,15 @@ function DashNewNote({ history, filter }) {
 
                     <NewNoteModal subject={subject} setSubject={setSubject} modal={modal} setModal={setModal} history={history} />
 
-                    <div className= "modalDiv">
+                    <div>
                         <Modal isOpen= {taskModal} onRequestClose={() => setTaskModal(false)} style={taskModalStyle}>
                             <div style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}}>
                                 <h3>Task List</h3>   
                                 <CloseButton onClick={closeTaskModal}/>
                             </div>
-                        <DashTodo />
+                            <div style={{marginTop:"20px"}}>
+                                <DashTodo />
+                            </div>    
                         </Modal>
                     </div>
                 </div>

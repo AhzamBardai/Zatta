@@ -1,6 +1,4 @@
 import React,{ useEffect } from 'react';
-import { Link } from 'react-router-dom'
-import fileImage from '../images/file.png'
 import DashFilter from './DashFilter';
 import DashNewNote from './DashNewNote';
 import { useMediaQuery } from 'react-responsive';
@@ -40,12 +38,11 @@ function DashFiles({  history }) {
 
     return (
 
-        <div style={{width:"95%"}}>
+        <div className="files-container">
             
-            {screen
-                ?
+            
                 <div>
-                    <div style={{display: "flex", flexDirection:"row", justifyContent: "center", alignItems: "baseline", flexWrap: "wrap"}}>
+                    <div className="files-filter-newNote-container">
                         
                         <DashFilter setFilter= {setNotesFilter}  filter= {notesFilter}/>
 
@@ -53,28 +50,13 @@ function DashFiles({  history }) {
 
                         
                     </div>
-                    <section className='dash-files-box' style={{display: "flex", flexDirection: "row", flexWrap: "wrap", marginTop: '50px' }}>
+                    <section className="files-map-container">
                         
                         <DashFilesMap />
                     
                     </section>
                 </div>
-                :
-                <div>
-                    <div style={{display: "flex", flexDirection:"row", justifyContent: "center", alignItems: "baseline", flexWrap: "wrap"}}>
-                        
-                        <DashFilter setFilter= {setNotesFilter}  filter= {notesFilter}/>
-
-                        <DashNewNote history={history} />
-                    </div>
-
-                    <section className='dash-files-box' style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "center"}}>
-                        
-                        <DashFilesMap />
-                    
-                    </section>
-                </div>
-            }
+                
                 
         </div>
     );

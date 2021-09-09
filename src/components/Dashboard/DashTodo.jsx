@@ -58,15 +58,15 @@ function DashTodo(props) {
         
         <div>
             
-            <div style={{display: "flex", flexDirection:"row", justifyContent: "center", alignItems: "baseline", flexWrap: "wrap", marginBottom:"30px"}}>
+            <div className="todo-header-container">
                 <DashFilter 
                 filter={todosFilter}
                 setFilter={setTodosFilter}
                 />
                 <DashNewTodo />
             </div>
-            <div className='dash-task-container'>
-                <section className='dash-task-box'>
+            <div>
+                <section>
                     {todos.filter((file) => {
                         if (todosFilter === "") {
                             return file.subject //
@@ -75,9 +75,9 @@ function DashTodo(props) {
                         } else return null 
                         }).map((filter, index) => {
                             return (
-                                <div className='task-card' style={{display: "flex", justifyContent: "center",alignItems:"center" , marginTop:"10px"}}>
+                                <div className='todo-card'>
                                     <label style={filter.complete ? {cursor:'pointer', display:"flex", flexWrap:"wrap", justifyContent:"flex-start", width:"88%", marginLeft:"10px", height:"100%", textDecoration:"line-through", color:"gray"} : {cursor:'pointer', display:"flex", flexWrap:"wrap", justifyContent:"flex-start", width:"88%", marginLeft:"10px", height:"100%"}}>
-                                        <input style={{height:"25px", width:"25px", marginRight:"10px", cursor:'pointer'}} type="checkbox" checked={filter.complete} onChange={(e) => checkbox(filter._id, e.target.checked)}/>    
+                                        <input className="todo-checkbox" type="checkbox" checked={filter.complete} onChange={(e) => checkbox(filter._id, e.target.checked)}/>    
                                         {filter.subject}
                                     </label>
                                     <Button variant="outline-danger" onClick={() => deleteNote(filter._id)} style={{float: "center", padding: "2px 10px 2px 10px"}}>X</Button>
