@@ -40,8 +40,8 @@ function SignupForm({ history }) {
         <form className="mt-10" method="POST" onSubmit={handleSubmit} >
                 
             <label htmlFor="name" className="block text-xs font-semibold text-gray-600 uppercase">Full Name</label>
-            <input id="username" type="name" name="name" placeholder="First & Last Name" autoComplete="name" minLength='2'
-                className="block w-full py-3 px-2 mt-2 
+            <input id="name" type="name" name="name" placeholder="First & Last Name" autoComplete="name" minLength='2'
+                className="capitalize block w-full py-3 px-2 mt-2 
                 text-gray-800 appearance-none 
                 border-solid border-2 rounded-2xl border-gray-100
                 focus:text-gray-500 focus:outline-none focus:border-gray-200 mb-2"
@@ -56,7 +56,7 @@ function SignupForm({ history }) {
                  value={userInfo.email} onChange={(e) => {e.preventDefault(); setUserInfo({...userInfo, email: e.target.value})}} />
 
             <label htmlFor="username" className="block text-xs font-semibold text-gray-600 uppercase mt-2">Username</label>
-            <input id="name" type="text" name="username" placeholder="Username" autoComplete="name"
+            <input id="username" type="text" name="username" placeholder="Username" autoComplete="name" minLength='5'
                 className="block w-full py-3 px-2 mt-2 
                 text-gray-800 appearance-none 
                 border-solid border-2 rounded-2xl border-gray-100
