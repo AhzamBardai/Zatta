@@ -5,6 +5,9 @@ import DashFiles from './DashFiles';
 import { useMediaQuery } from 'react-responsive';
 import userStore  from '../Users/GetUsers.js';
 import axios from 'axios';
+import './styles/Dashboard.css'
+
+
 
 function Dashboard({ history }) {
 
@@ -34,31 +37,31 @@ function Dashboard({ history }) {
     
 
     return (
-        <div style={{backgroundColor:"#F3F4F6"}}>
+        <div className="dashboard-background">
 
             {screen 
             ?
                 <div>
 
                     <DashNavigation />
-                    <div style={{display: "flex", justifyContent: 'space-around', marginTop:"20px"}}>
-                        <div style={{display:"flex", flexDirection: 'row',justifyContent:"center",overflowY: "auto", height: "85vh", width: "65%", backgroundColor: "white", boxShadow:"0 0 10px darkgray", borderRadius:"15px", padding: "10px", marginLeft:"30px", marginRight:"30px", marginBottom: "10px"}}>
+                    <div className="dashboard-container">
+                        <div className="dashboard-files-container">
                             <DashFiles 
                                 history={history}
                             />
                         </div>
-                        <div style={{display: "flex", flexDirection: 'column',overflowY: "auto", backgroundColor: "white", boxShadow:"0 0 10px darkgray", borderRadius:"15px", padding: "10px", height: "85vh", marginRight:"20px", width:"30%"}}>
+                        <div className="dashboard-todo-container">
                             <DashTodo />
                         </div>
                     </div>
 
                 </div>
             :
-                <div style={{backgroundColor:"#F3F4F6", height: "100vh"}}>
+                <div className="dashboard-background">
 
                     <DashNavigation />
-                    <div style={{display: "flex", justifyContent: 'space-around', marginTop:"10px"}}>
-                        <div style={{flexDirection: 'row', height: "85vh",overflowY: "auto", width: "80%", backgroundColor: "white", boxShadow:"0 0 10px darkgray", borderRadius:"15px", padding: "10px"}}>
+                    <div className="responsive-dashboard-container">
+                        <div className="responsive-dashboard-files">
                             <DashFiles 
                                 history={history}
                             />

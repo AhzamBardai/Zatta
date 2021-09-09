@@ -60,10 +60,10 @@ function DashNewTodo({ history }) {
         
         <div>
 
-            <div style={{display: "flex", justifyContent: "center"}}>
+            <div className="newTodo-button-container">
                 <Button style={{display: "flex", justifyContent: "right", marginLeft:"10px", backgroundColor:"black"}} onClick={openModal} variant="dark">{screen ? "New Task" : "+"}</Button>
             </div>
-            <div className= "modalDiv">
+            <div>
                 <Modal isOpen= {modal} onRequestClose={() => setModal(false)} style={modalStyle}>
                     <div style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}}>
                         <h3>New Task</h3>   

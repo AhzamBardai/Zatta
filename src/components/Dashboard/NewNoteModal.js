@@ -39,13 +39,13 @@ function NewNoteModal({ subject, setSubject, modal, setModal, history }) {
     }
 
     return (
-        <div className= "modalDiv">
+        <div>
         <Modal isOpen= {modal} onRequestClose={() => setModal(false)} style={modalStyle}>
-            <div style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}}>
+            <div className="newNote-modal-header">
                 <h3>New Note</h3>   
                 <CloseButton onClick={closeModal}/>
             </div>
-            <InputGroup className="mb-3">
+            <InputGroup className="mb-3" style={{marginTop:"20px"}}>
                 <FormControl placeholder="Enter Note Name" style={{display: "flex", flexDirection:"row", justifyContent: "space-between", alignItems: "baseline"}} value={subject} onChange={(e) => setSubject(e.target.value)} />
                 <Link to="/dashboard"><Button style={{backgroundColor:"black"}} variant="dark" onClick={newNote} >Create</Button></Link>
             </InputGroup>                
