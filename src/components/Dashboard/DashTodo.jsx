@@ -48,7 +48,7 @@ function DashTodo(props) {
         axios.put((urlTodos + id), { complete : checked })
         .then(() => {
             axios.get(urlTodos + `author/${currentUser._id}`).then(res => {
-                setTask(res.data)
+                setTodos(res.data)
             })
         })        
     }
