@@ -12,7 +12,7 @@ export const modules = {
        
         [ {'direction': 'rtl'}, { 'align': [] }],
 
-        ['link', 'image', 'video', 'formula'],
+        ['link', 'image', 'video'],
         ['clean']
     ]
   }
@@ -22,7 +22,7 @@ export const formats = [
     'bold', 'italic', 'underline', 'strike', 'blockquote',
     'color', 'background', 'font', 'align',
     'list', 'bullet', 'indent',
-    'link', 'image', 'code-block', 'code', 'video', 'script', 'direction','formula', 'size'
+    'link', 'image', 'code-block', 'code', 'video', 'script', 'direction', 'size'
 ]
 
 
