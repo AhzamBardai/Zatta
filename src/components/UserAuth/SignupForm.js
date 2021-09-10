@@ -1,7 +1,7 @@
 import React,{ useState } from 'react'
 import axios from 'axios'
 import userStore  from '../Users/GetUsers';
-
+import PasswordModal from './PasswordModal'
 
 function SignupForm({ history }) {
 
@@ -9,6 +9,7 @@ function SignupForm({ history }) {
     const urlUsers = userStore(state => state.urlUsers)
     const setLogedIn = userStore(state => state.setLoggedIn)
     const setUser = userStore(state => state.setCurrentUser)
+    const [modal, setModal] = useState(false)
 
     const [userInfo, setUserInfo] = useState({
         name: '',
@@ -28,7 +29,7 @@ function SignupForm({ history }) {
             })
             .catch((err) => {
                 setLogedIn(false)
-                window.alert('Username should be unique.')
+                setModal(true)
             })
         
     }
@@ -88,7 +89,7 @@ function SignupForm({ history }) {
                     </p>
                 
             </div>
-
+            { modal && <PasswordModal modal={modal} setModal={setModal} string={'Username has to be unique'}/> }
         </form>
 
     )

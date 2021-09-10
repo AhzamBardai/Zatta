@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import { Button } from 'react-bootstrap';
 
 
-function PasswordModal({ modal, setModal }) {
+function PasswordModal({ modal, setModal, string }) {
 
     const modalStyle = {
         content: {
@@ -27,7 +27,7 @@ function PasswordModal({ modal, setModal }) {
         <div>
         <Modal isOpen= {modal} onRequestClose={() => setModal(false)} style={modalStyle}>
             <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
-                <h3>Username or Password Incorrect</h3>
+                <h3>{string}</h3>
                 <Button style={{marginTop:"10px",width:"5rem", backgroundColor:"black"}} variant="dark" onClick={closeModal}>Close</Button>
             </div>
         </Modal>

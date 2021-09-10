@@ -109,7 +109,7 @@ function LoginForm({ history }) {
                 Create an Account
             </Link>
         </div>
-        { modal && <PasswordModal modal={modal} setModal={setModal}/> }
+        { modal && <PasswordModal modal={modal} setModal={setModal} string={'Username or Password Incorrect'}/> }
     </form>
 )
 }
