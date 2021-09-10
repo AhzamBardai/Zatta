@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
 import userStore  from '../Users/GetUsers';
+import PasswordModal from './PasswordModal';
 
 function LoginForm({ history }) {
 
@@ -14,6 +15,7 @@ function LoginForm({ history }) {
     const setTodos = userStore(state => state.setTodos) 
     const setLogedIn = userStore(state => state.setLoggedIn)
     const setUser = userStore(state => state.setCurrentUser)
+    const [modal, setModal] = useState(false)
 
     const [loginInfo, setLoginInfo] = useState({
         username: '',
@@ -28,7 +30,6 @@ function LoginForm({ history }) {
             .then(res => {
                 if(res.data.length){
                     const sessionID = res.data
-                    console.log(sessionID)
                     axios.get(urlUsers + `session/${res.data}`)
                         .then(res => {
                             axios.get(urlNotes + `author/${res.data.user._id}`).then(res => {
@@ -56,7 +57,7 @@ function LoginForm({ history }) {
 
                     }  else {
                         setLogedIn(false)
-                        window.alert('Incorrect username or password')
+                        setModal(true)
                     }
                 })
                 
@@ -68,7 +69,7 @@ function LoginForm({ history }) {
     return (
         <form className="mt-10" method="POST" onSubmit={handleSubmit}>
                             
-        <label htmlFor="username" className="block text-xs font-semibold text-gray-600 uppercase">Username</label>
+        <label htmlFor="username" className="block text-xs font-semibold text-gray-600 uppercase">Username<span style={{color:'gray'}}><i>(Case Sensitive)</i></span></label>
         <input id="username" type="text" name="username" placeholder="username" autoComplete="username"
             className="block w-full py-3 px-2 mt-2 
             text-gray-800 appearance-none 
@@ -108,6 +109,7 @@ function LoginForm({ history }) {
                 Create an Account
             </Link>
         </div>
+        { modal && <PasswordModal modal={modal} setModal={setModal} string={'Username or Password Incorrect'}/> }
     </form>
 )
 }
