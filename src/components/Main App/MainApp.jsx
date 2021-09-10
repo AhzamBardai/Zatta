@@ -10,12 +10,12 @@ import { useMediaQuery } from 'react-responsive';
 import { delSVG, dashSVG, saveSVG } from '../images/svg'
 
 
-export default function MainApp({ note }) {
+export default function MainApp({ noteID }) {
 
     const [notes, setNotes] = useState('')
     const [subject, setSubject] = useState('')
-    const urlNotes = 'https://zatta1.herokuapp.com/api/notes/'
     const [modal, setModal] = useState(false)
+    const urlNotes = 'https://zatta1.herokuapp.com/api/notes/'
     const currentUser = userStore(state => state.currentUser)
 
     //media queries
@@ -23,17 +23,16 @@ export default function MainApp({ note }) {
     const width440 = useMediaQuery({query: "(min-width: 440px)"})
     // const width300 = useMediaQuery({query: "(min-width: 330px)"})
 
-
-
-
+    // notes populate
     useEffect(() => {
-        axios.get(urlNotes+ '/note/' + note).then(res => {
+        axios.get(urlNotes+ '/note/' + noteID).then(res => {
             setNotes(res.data.text)
             setSubject(res.data.subject)
         }) 
 
-    },[note])
+    },[noteID])
 
+    // sve subject change
     const subjectChange = (e) => {
         e.preventDefault()
         const url = window.location.pathname.split('/')
@@ -41,8 +40,9 @@ export default function MainApp({ note }) {
 
     }
 
-   function deleteNote()  {
-        axios.delete(urlNotes + note).then(() => {
+    // delete note
+    function deleteNote()  {
+        axios.delete(urlNotes + noteID).then(() => {
             axios.get(urlNotes + `author/${currentUser._id}`)
                 .then(res => setNotes(res.data))
         })
@@ -66,6 +66,7 @@ export default function MainApp({ note }) {
     
     return (
         <div className='main-note-pg'>
+
             <div className='notes-header'>
                 <form className='main-subject' onSubmit={subjectChange} style={{display: "flex", flexDirection: 'row',alignItems:"center", borderRadius:"5px", border:"1px solid #CCC"}}>
                     <FormControl style={{border:"none"}} className='main-note-sbj' type='text' value={subject} onChange={(e) => setSubject(e.target.value)} />
@@ -80,6 +81,7 @@ export default function MainApp({ note }) {
                     <Link to='/dashboard'><Button variant="outline-dark"> { width550 ? 'Dashboard' : dashSVG} </Button></Link>
                 </div>
             </div>
+
             <div className= "modalDiv">
                 <Modal isOpen= {modal} onRequestClose={() => setModal(false)} style={modalStyle}>
                     <div style={{display: "flex", justifyContent: "center"}}>

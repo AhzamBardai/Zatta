@@ -3,7 +3,7 @@ import { mountStoreDevtool } from "simple-zustand-devtools";
 
 
 
-
+// zustand global state store
 const userStore = create(set => ({
     urlNotes: "https://zatta1.herokuapp.com/api/notes/",
     urlTodos: "https://zatta1.herokuapp.com/api/todos/",

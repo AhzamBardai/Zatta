@@ -21,6 +21,7 @@ function DashFiles({  history }) {
     const setNotesFilter = userStore(state => state.setNotesFilter)
     const notesFilter = userStore(state => state.notesFilter)
 
+    // set notes 
     useEffect(() => {
         axios.get(urlNotes + `author/${currentUser._id}`).then(res => {
             setNotes(res.data)

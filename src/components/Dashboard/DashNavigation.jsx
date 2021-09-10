@@ -6,15 +6,20 @@ import axios from 'axios';
 
 
 function Navigation() {
+
+    // modal state
     const [openMenu,setopenMenu]=useState(false)
+
+    // zustand states
     const setLogedIn = userStore(state => state.setLoggedIn)
-    const setUser = userStore(state => state.setCurrentUser)
     const isLoggedIn = userStore(state => state.isLoggedIn)
     const setNotes = userStore(state => state.setNotes) 
     const setTodos = userStore(state => state.setTodos) 
+    const setUser = userStore(state => state.setCurrentUser)
     const user = userStore(state => state.currentUser)
     const urlUsers = userStore(state => state.urlUsers)
 
+    // logout functionality
     const logout = () => {
         setUser({})
         setLogedIn(false)
@@ -29,6 +34,8 @@ function Navigation() {
         setopenMenu(!openMenu);
     }
 
+
+    // tail wind nav
       return (
         <div>
             <nav className="bg-gray-50 shadow-lg dark:bg-gray-800">

@@ -27,6 +27,7 @@ function NewNoteModal({ subject, setSubject, modal, setModal, history }) {
         setModal(false)
     }
 
+    // ad note in backend
     const newNote = () => {
         const urlNotes = `https://zatta1.herokuapp.com/api/notes/`
         axios.post(urlNotes + currentUser._id, { subject: subject, text: '' })

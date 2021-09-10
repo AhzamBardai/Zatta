@@ -15,7 +15,7 @@ function QuillEditor({ notes, subject }) {
         axios.put(urlNotes + url[2], { text: content })
     }
     
-
+    // built in quill component call modules and format imported seperatly
     return (
         <div className='quill-editor '>
             <ReactQuill 

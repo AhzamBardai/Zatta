@@ -39,7 +39,7 @@ function DashNewNote({ history, filter }) {
         setTaskModal(false)
     }
 
-    
+    // responsive change on dashboard
     return (
         
         <div>

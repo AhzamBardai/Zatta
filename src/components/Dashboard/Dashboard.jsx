@@ -21,10 +21,11 @@ function Dashboard({ history }) {
     const urlTodos = userStore(state => state.urlTodos)
     const setTodos = userStore(state => state.setTodos)
 
-
+    // media queries
     const screen = useMediaQuery({query: "(min-width: 1024px)"})
     const height890 = useMediaQuery({query: "(min-height: 890px)"})
 
+    // set notes from backend
     useEffect(() => {
         if(currentUser._id){
             axios.get(urlNotes + `author/${currentUser._id}`).then(res => {

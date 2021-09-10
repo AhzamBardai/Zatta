@@ -12,6 +12,7 @@ function DashSearch({ setFilter, filter }) {
         setFilter("")
     }
 
+    // filter on top of both notes and todos
     return (
         <div>
             

@@ -12,6 +12,7 @@ function DashFilesMap() {
     const notes = userStore(state => state.notes)
     const notesFilter = userStore(state => state.notesFilter)
 
+    // display files on screen
     return (
         notes.filter((file) => notesFilter === ""
                 ? file.subject

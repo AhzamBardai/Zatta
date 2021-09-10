@@ -44,6 +44,7 @@ function DashNewTodo({ history }) {
         setSubject("")
     }
 
+    // add todo to backend
     const newTodo = () => {
         axios.post(urlTodos + currentUser._id, { subject: subject, text: '' })
             .then((res) => {

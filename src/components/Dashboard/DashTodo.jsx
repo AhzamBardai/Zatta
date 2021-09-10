@@ -26,7 +26,7 @@ function DashTodo(props) {
     // const screen = useMediaQuery({query: "(min-width: 1024px)"})
     const screen = useMediaQuery({query: "(min-width: 1024px)"})
 
-    
+    // get todos on re-render
     useEffect(() => {
         axios.get(urlTodos + `author/${currentUser._id}`).then(res => {
             setTodos(res.data)
@@ -34,6 +34,7 @@ function DashTodo(props) {
     } ,[currentUser._id, setTodos, urlTodos])
 
 
+    // delete todo in backend
     function deleteNote(id)  {
         axios.delete(urlTodos + id)
             .then(() => {
@@ -43,6 +44,7 @@ function DashTodo(props) {
             })
     }
 
+    // completing todo functionality
     function checkbox(id, checked) {
         axios.put((urlTodos + id), { complete : checked })
         .then(() => {
