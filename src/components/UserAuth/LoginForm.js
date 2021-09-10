@@ -69,7 +69,7 @@ function LoginForm({ history }) {
     return (
         <form className="mt-10" method="POST" onSubmit={handleSubmit}>
                             
-        <label htmlFor="username" className="block text-xs font-semibold text-gray-600 uppercase">Username</label>
+        <label htmlFor="username" className="block text-xs font-semibold text-gray-600 uppercase">Username<span style={{color:'gray'}}><i>(Case Sensitive)</i></span></label>
         <input id="username" type="text" name="username" placeholder="username" autoComplete="username"
             className="block w-full py-3 px-2 mt-2 
             text-gray-800 appearance-none 
