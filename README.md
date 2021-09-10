@@ -1,8 +1,9 @@
 # Zatta - Note-Taking App
 Zatta is a note-taking platform that allows users to log into their respective accounts and write, access, edit, save their notes.
 
-**Link to Live Application:** [Zatta]()
-**Link to Backend Repository:** [Zatta-Backend](https://github.com/ToddPeltzer/Zatta-Backend/tree/dev)
+**Link to Live Application:** [Zatta](https://zatta.herokuapp.com/)
+
+**Link to Backend Repository:** [Zatta-Backend](https://github.com/ToddPeltzer/Zatta-Backend)
 ## Example of Use
 
 
