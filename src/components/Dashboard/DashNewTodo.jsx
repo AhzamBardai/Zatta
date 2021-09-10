@@ -36,6 +36,7 @@ function DashNewTodo({ history }) {
 
     function closeModal() {
         setModal(false)
+        setSubject("")
     }
 
     const newTodo = () => {

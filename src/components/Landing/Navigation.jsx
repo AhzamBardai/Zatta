@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { Link , Switch } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import userStore  from '../Users/GetUsers';
 import axios from 'axios';
+
+
 function Navigation({ login }) {
     const [openMenu,setopenMenu]=useState(false)
     const setLogedIn = userStore(state => state.setLoggedIn)
@@ -71,11 +73,9 @@ function Navigation({ login }) {
                 
                 </div>
             </div>
-        </div>
-        
-    </nav>
-    
             </div>
+            </nav>
+        </div>
       );
 }
 

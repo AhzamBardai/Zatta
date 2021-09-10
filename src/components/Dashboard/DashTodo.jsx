@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import DashFilter from './DashFilter'
 import DashNewTodo from './DashNewTodo';
 import { useMediaQuery } from 'react-responsive';
-import { Button } from 'react-bootstrap';
+import { Button, InputGroup } from 'react-bootstrap';
 import axios from 'axios';
 import userStore  from '../Users/GetUsers.js';
 import './styles/Dashboard.css';
@@ -21,6 +21,7 @@ function DashTodo(props) {
     const [taskFilter, setTaskFilter] = useState("")
     const screen = useMediaQuery({query: "(min-width: 1024px)"})
     const [check, setCheck] = useState("")
+
     
     useEffect(() => {
         axios.get(urlTodos + `author/${currentUser._id}`).then(res => {
@@ -29,6 +30,14 @@ function DashTodo(props) {
     } ,[todos])
 
 
+    function deleteNote(id)  {
+        axios.delete(urlTodos + id)
+            .then(() => {
+                axios.get(urlTodos + `author/${currentUser._id}`).then(res => {
+                    setTask(res.data)
+                })
+            })
+    }
 
 
     return (
@@ -41,6 +50,9 @@ function DashTodo(props) {
                 setFilter={setTaskFilter}
                 />
                 <DashNewTodo />
+
+
+
             </div>
             <div className='dash-task-container'>
                 <section className='dash-task-box'>
@@ -52,11 +64,15 @@ function DashTodo(props) {
                         } else return null 
                     }).map(filter => {
                         return (
-                            <div className='task-card' style={{display: "flex", justifyContent: "center", marginTop:"10px"}}>
-                                <Button variant="outline-dark" style={{height:"25px", width: "25px", justifyContent:"center"}} onClick={() => setCheck("✔")}>{check}</Button>
+                            <div className='task-card' style={{display: "flex", justifyContent: "center",alignItems:"center" , marginTop:"10px"}}>
+
+                                {/* <Button variant="outline-dark" style={{height:"25px", width: "25px", justifyContent:"center"}} onClick={() => setCheck("✔")}>{check}</Button> */}
+                                {/* <InputGroup.Checkbox aria-label="Checkbox for tasks" /> */}
+                                <input style={{height:"25px", width:"25px"}} type="checkbox" value="true"/>    
                                 <div style={{display:"flex", flexWrap:"wrap", justifyContent:"flex-start", width:"88%", marginLeft:"10px", height:"100%"}}>
                                     {filter.subject}
                                 </div>
+                                <Button variant="outline-danger" onClick={() => deleteNote(filter._id)} style={{float: "center", padding: "2px 10px 2px 10px"}}>X</Button>
                             </div>
                         )
                     })
