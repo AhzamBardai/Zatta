@@ -96,11 +96,7 @@ function LoginForm({ history }) {
 
         
         <div className="sm:flex sm:flex-wrap mt-8 sm:mb-4 text-sm text-center">
-<<<<<<< HEAD
-            <a href="forgot-password" class="flex-2 underline text-black">
-=======
-            <a href="forgot-password" className="flex-2 underline">
->>>>>>> c91fa35 (merge with finaltodd)
+            <a href="forgot-password" className="flex-2 underline text-black">
                 Forgot password?
             </a>
 
@@ -108,11 +104,7 @@ function LoginForm({ history }) {
                 or
             </p>
 
-<<<<<<< HEAD
-            <Link to='/signup' class="flex-2 underline text-black">
-=======
-            <Link to='/signup' className="flex-2 underline">
->>>>>>> c91fa35 (merge with finaltodd)
+            <Link to='/signup' className="flex-2 underline text-black">
                 Create an Account
             </Link>
         </div>

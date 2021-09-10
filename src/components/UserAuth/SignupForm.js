@@ -45,7 +45,7 @@ function SignupForm({ history }) {
                 text-gray-800 appearance-none 
                 border-solid border-2 rounded-2xl border-gray-100
                 focus:text-gray-500 focus:outline-none focus:border-gray-200 mb-2"
-                required value={userInfo.name} onChange={(e) => {e.preventDefault(); setUserInfo({...userInfo, name: e.target.value})}} />
+                required value={userInfo.name} onChange={(e) => {e.preventDefault(); setUserInfo({...userInfo, name: e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1)})}} />
  
             <label htmlFor="email" className="block text-xs font-semibold text-gray-600 uppercase">Email Address <span style={{color:'gray'}}><i>(optional)</i></span></label>
             <input id="email" type="email" name="email" placeholder="Email Address" autoComplete="email"
