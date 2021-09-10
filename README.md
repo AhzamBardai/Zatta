@@ -26,8 +26,8 @@ Zatta is a note-taking platform that allows users to log into their respective a
 - [react-quill](https://www.npmjs.com/package/react-quill) - a Quill component that allows for custom notes with an editing/formatting toolbar.
 - [react-responsive](https://www.npmjs.com/package/react-responsive) - package for intergrating inline media queries into React for a responsive design.
 - [react-router-dom](https://www.npmjs.com/package/react-router-dom) - package for Route, Link components to make navigable website. 
-- [Tailwind](https://tailwindcss.com/) - a styling framework used to for class-based inline styling. 
-- [zustand](https://www.npmjs.com/package/zustand) - state-management package used to transform states into hook calls.
+- [Tailwind CSS](https://tailwindcss.com/) - a styling framework used to for class-based inline styling. 
+- [Zustand](https://www.npmjs.com/package/zustand) - state-management package used to transform states into hook calls.
 
 ## Contributors
 - Ahzam | [Github](https://github.com/AhzamBardai) | [LinkedIn](https://www.linkedin.com/in/ahzam-bardai/)
@@ -37,4 +37,6 @@ Zatta is a note-taking platform that allows users to log into their respective a
 - Zavier | [Github](https://github.com/ZavierLowe) | [LinkedIn](https://www.linkedin.com/in/zavierlowe/)
 
 ## Contribution Guidelines
-Please submit any bugs that are found in the Issues. 
+- Please submit any bugs that are found in the Issues. 
+- Pull request with fixed code would be much appriciated 
+
