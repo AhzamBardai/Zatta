@@ -1,7 +1,7 @@
 import React,{ useState } from 'react'
 import axios from 'axios'
 import userStore  from '../Users/GetUsers';
-import PasswordModal from './PasswordModal'
+
 
 function SignupForm({ history }) {
 
@@ -9,7 +9,6 @@ function SignupForm({ history }) {
     const urlUsers = userStore(state => state.urlUsers)
     const setLogedIn = userStore(state => state.setLoggedIn)
     const setUser = userStore(state => state.setCurrentUser)
-    const [modal, setModal] = useState(false)
 
     const [userInfo, setUserInfo] = useState({
         name: '',
@@ -28,8 +27,9 @@ function SignupForm({ history }) {
                 window.location.reload()
             })
             .catch((err) => {
+                console.log(err.message)
                 setLogedIn(false)
-                setModal(true)
+                window.alert('Please try again')
             })
         
     }
@@ -55,7 +55,7 @@ function SignupForm({ history }) {
                 focus:text-gray-500 focus:outline-none focus:border-gray-200 mb-2"
                  value={userInfo.email} onChange={(e) => {e.preventDefault(); setUserInfo({...userInfo, email: e.target.value})}} />
 
-            <label htmlFor="username" className="block text-xs font-semibold text-gray-600 uppercase mt-2">Username<span style={{color:'gray'}}><i>(Case Sensitive)</i></span></label>
+            <label htmlFor="username" className="block text-xs font-semibold text-gray-600 uppercase mt-2">Username</label>
             <input id="username" type="text" name="username" placeholder="Username" autoComplete="name" minLength='5'
                 className="block w-full py-3 px-2 mt-2 
                 text-gray-800 appearance-none 
@@ -89,7 +89,7 @@ function SignupForm({ history }) {
                     </p>
                 
             </div>
-            { modal && <PasswordModal modal={modal} setModal={setModal} string={'Username has to be unique'}/> }
+
         </form>
 
     )
