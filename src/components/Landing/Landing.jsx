@@ -69,7 +69,7 @@ function Landing(props) {
                 <h1 id='how-it-works' className="mt-48 text-center sm:text-2xl md:text-4xl xl:mt-96 text-black-600 font-bold mb-10">How it works</h1>
 
 
-                            <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full h-screen lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+                            <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
                   <div className="grid gap-12 row-gap-8 lg:grid-cols-2 ">
                     <div className=''>
                       <img
@@ -104,7 +104,7 @@ function Landing(props) {
                   </div>
                 </div>
 
-                <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full h-screen lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+                <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
                   <div className="flex flex-col-reverse sm:flex-col-reverse md:flex-col-reverse lg:flex-row xl:flex-row ">
                     
                     <div className="flex flex-col justify-center">
@@ -136,7 +136,7 @@ function Landing(props) {
                   </div>
                 </div>
 
-                <div className="px-4 py-16 md:flex-col-reverse mx-auto sm:max-w-xl h-screen md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+                <div className="px-4 py-16 md:flex-col-reverse mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
                   <div className="flex flex-col sm:flex-col md:flex-col lg:flex-row xl:flex-row">
                     <div>
                       <img
