@@ -45,6 +45,7 @@ export default function MainApp({ note }) {
         axios.delete(urlNotes + note).then(() => {
             axios.get(urlNotes + `author/${currentUser._id}`)
                 .then(res => setNotes(res.data))
+            console.log('delete note') 
         })
     }
 

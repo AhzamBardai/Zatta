@@ -40,6 +40,7 @@ function DashTodo(props) {
                 axios.get(urlTodos + `author/${currentUser._id}`).then(res => {
                     setTodos(res.data)
                 })
+                console.log('todo delete') 
             })
     }
 
