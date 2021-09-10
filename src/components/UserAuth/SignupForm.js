@@ -79,10 +79,10 @@ function SignupForm({ history }) {
                 focus:outline-none hover:bg-gray-700 hover:shadow-none">
                 Sign Up
             </button>
-            <div class="sm:flex sm:flex-wrap mt-8 sm:mb-4 text-sm justify-center text-center">
+            <div className="sm:flex sm:flex-wrap mt-8 sm:mb-4 text-sm justify-center text-center">
                 
             <p>If you have an account
-                    <a href="register" class=" text-black  ml-1 ">
+                    <a href="register" className=" text-black  ml-1 ">
                     Sign In
                 </a>
                 

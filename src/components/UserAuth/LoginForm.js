@@ -97,16 +97,16 @@ function LoginForm({ history }) {
         </button>
 
         
-        <div class="sm:flex sm:flex-wrap mt-8 sm:mb-4 text-sm text-center">
-            <a href="forgot-password" class="flex-2 underline">
+        <div className="sm:flex sm:flex-wrap mt-8 sm:mb-4 text-sm text-center">
+            <a href="forgot-password" class="flex-2 underline text-black">
                 Forgot password?
             </a>
 
-            <p class="flex-1 text-gray-500 text-md mx-4 my-1 sm:my-auto">
+            <p className="flex-1 text-gray-500 text-md mx-4 my-1 sm:my-auto">
                 or
             </p>
 
-            <Link to='/signup' class="flex-2 underline">
+            <Link to='/signup' class="flex-2 underline text-black">
                 Create an Account
             </Link>
         </div>
