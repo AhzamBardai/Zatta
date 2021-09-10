@@ -29,10 +29,10 @@ function Dashboard({ history }) {
         if(currentUser._id){
             axios.get(urlNotes + `author/${currentUser._id}`).then(res => {
                 setNotes(res.data)
-            }).catch(() => console.log('dash useeffect'))
+            })
             axios.get(urlTodos + `author/${currentUser._id}`).then(res => {
                 setTodos(res.data)
-            }).catch(() => console.log('dash useeffect'))
+            })
         }
     } ,[currentUser._id, setNotes, setTodos, urlNotes, urlTodos])
 
