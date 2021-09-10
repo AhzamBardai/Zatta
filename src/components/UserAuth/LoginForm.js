@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios'
 import userStore  from '../Users/GetUsers';
+import PasswordModal from './PasswordModal';
 
 function LoginForm({ history }) {
 
@@ -14,6 +15,7 @@ function LoginForm({ history }) {
     const setTodos = userStore(state => state.setTodos) 
     const setLogedIn = userStore(state => state.setLoggedIn)
     const setUser = userStore(state => state.setCurrentUser)
+    const [modal, setModal] = useState(false)
 
     const [loginInfo, setLoginInfo] = useState({
         username: '',
@@ -55,7 +57,7 @@ function LoginForm({ history }) {
 
                     }  else {
                         setLogedIn(false)
-                        window.alert('Incorrect username or password')
+                        setModal(true)
                     }
                 })
                 
@@ -107,6 +109,7 @@ function LoginForm({ history }) {
                 Create an Account
             </Link>
         </div>
+        { modal && <PasswordModal modal={modal} setModal={setModal}/> }
     </form>
 )
 }
