@@ -38,5 +38,5 @@ Zatta is a note-taking platform that allows users to log into their respective a
 
 ## Contribution Guidelines
 - Please submit any bugs that are found in the Issues. 
-- Pull request with fixed code would be much appriciated 
+- Pull request with fixed code would be much appreciated 
 
