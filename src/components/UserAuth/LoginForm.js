@@ -28,7 +28,6 @@ function LoginForm({ history }) {
             .then(res => {
                 if(res.data.length){
                     const sessionID = res.data
-                    console.log(sessionID)
                     axios.get(urlUsers + `session/${res.data}`)
                         .then(res => {
                             axios.get(urlNotes + `author/${res.data.user._id}`).then(res => {

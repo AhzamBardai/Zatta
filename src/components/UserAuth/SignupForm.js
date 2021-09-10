@@ -27,7 +27,6 @@ function SignupForm({ history }) {
                 window.location.reload()
             })
             .catch((err) => {
-                console.log(err.message)
                 setLogedIn(false)
                 window.alert('Please try again')
             })
