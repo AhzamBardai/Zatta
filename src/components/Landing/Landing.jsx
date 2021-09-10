@@ -23,7 +23,9 @@ function Landing(props) {
                   <div className="flex flex-col items-start w-full max-w-xl px-4 mx-auto lg:px-8 lg:max-w-screen-xl ">
                     <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
                       <div className="max-w-xl mb-6">
-                      <h1 className='text-gray-900 text-4xl font-bold'>Take Notes and <br/>Manage Tasks With Ease</h1>
+
+                        <h1 className='text-gray-900 text-4xl font-bold'>Take Notes and <br/>Manage Tasks With Ease</h1>
+
                         <p className="text-base text-gray-700 md:text-lg lg:text-xl mt-3">
                         Zatta is a note taking platform, allowing users to write, access, edit, and save their notes. 
                         
