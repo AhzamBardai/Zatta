@@ -28,7 +28,7 @@ function SignupForm({ history }) {
             })
             .catch((err) => {
                 setLogedIn(false)
-                window.alert('Please try again')
+                window.alert('Username should be unique.')
             })
         
     }
