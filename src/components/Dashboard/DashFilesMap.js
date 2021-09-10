@@ -18,7 +18,7 @@ function DashFilesMap() {
                 : file.subject.toLowerCase().includes(notesFilter.toLowerCase())
                 ? file.subject
                 : null
-            ).map(filter => (
+            ).map((filter, index) => (
 
             
                 <div className='files'>

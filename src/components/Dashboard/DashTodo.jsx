@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import DashFilter from './DashFilter'
 import DashNewTodo from './DashNewTodo';
-import { useMediaQuery } from 'react-responsive';
-import { Button, InputGroup } from 'react-bootstrap';
+// import { useMediaQuery } from 'react-responsive';
+import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import userStore  from '../Users/GetUsers.js';
 import './styles/Dashboard.css';
@@ -23,15 +23,14 @@ function DashTodo(props) {
     const todosFilter = userStore(state => state.todosFilter)
 
 
-    const screen = useMediaQuery({query: "(min-width: 1024px)"})
-    const [check, setCheck] = useState("")
+    // const screen = useMediaQuery({query: "(min-width: 1024px)"})
 
     
     useEffect(() => {
         axios.get(urlTodos + `author/${currentUser._id}`).then(res => {
             setTodos(res.data)
         })       
-    } ,[])
+    } ,[currentUser._id, setTodos, urlTodos])
 
 
     function deleteNote(id)  {

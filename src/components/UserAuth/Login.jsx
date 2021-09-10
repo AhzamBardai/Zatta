@@ -18,7 +18,11 @@ function Login({ history }) {
                         <Link to='/'><button className='text-black underline'>Back to home</button></Link>
 
                         <h2 className="text-center font-semibold text-3xl lg:text-4xl text-gray-800">
+<<<<<<< HEAD
                             Log in
+=======
+                            login
+>>>>>>> c91fa35 (merge with finaltodd)
                         </h2>
 
                         <LoginForm history={history} />
