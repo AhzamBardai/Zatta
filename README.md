@@ -31,11 +31,11 @@ Zatta is a note-taking platform that allows users to log into their respective a
 - [Zustand](https://www.npmjs.com/package/zustand) - state-management package used to transform states into hook calls.
 
 ## Contributors
-- Ahzam | [Github](https://github.com/AhzamBardai) | [LinkedIn](https://www.linkedin.com/in/ahzam-bardai/)
-- Alec | [Github](https://github.com/wenjase) | [LinkedIn](https://www.linkedin.com/in/alec-johnson-252a09212/)
-- Todd | [Github](https://github.com/toddpeltzer) | [LinkedIn](https://www.linkedin.com/in/todd-peltzer/)
-- Troi | [Github](https://github.com/tverg419) | [LinkedIn](https://www.linkedin.com/in/troi-vergara/)
-- Zavier | [Github](https://github.com/ZavierLowe) | [LinkedIn](https://www.linkedin.com/in/zavierlowe/)
+- Ahzam | [Github](https://github.com/AhzamBardai) | [LinkedIn](https://www.linkedin.com/in/ahzam-bardai/) | Team Lead
+- Alec | [Github](https://github.com/wenjase) | [LinkedIn](https://www.linkedin.com/in/alec-johnson-252a09212/) | Backend Admin
+- Todd | [Github](https://github.com/toddpeltzer) | [LinkedIn](https://www.linkedin.com/in/todd-peltzer/) | Frontend - Functinality
+- Troi | [Github](https://github.com/tverg419) | [LinkedIn](https://www.linkedin.com/in/troi-vergara/)  | Database Admin
+- Zavier | [Github](https://github.com/ZavierLowe) | [LinkedIn](https://www.linkedin.com/in/zavierlowe/) | Frontend - Styling
 
 ## Contribution Guidelines
 - Please submit any bugs that are found in the Issues. 
