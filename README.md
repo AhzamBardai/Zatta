@@ -38,6 +38,6 @@ Zatta is a note-taking platform that allows users to log into their respective a
 - Zavier | [Github](https://github.com/ZavierLowe) | [LinkedIn](https://www.linkedin.com/in/zavierlowe/) | Frontend - Styling
 
 ## Contribution Guidelines
-- Please submit any bugs that are found in the Issues. 
-- Pull request with fixed code would be much appreciated 
+- Please submit any bugs that are found in the Issues tab. 
+- Pull request with any input would be much appreciated 
 
