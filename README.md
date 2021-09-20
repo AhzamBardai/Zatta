@@ -33,7 +33,7 @@ Zatta is a note-taking platform that allows users to log into their respective a
 ## Contributors
 - Ahzam | [Github](https://github.com/AhzamBardai) | [LinkedIn](https://www.linkedin.com/in/ahzam-bardai/) | Team Lead
 - Alec | [Github](https://github.com/wenjase) | [LinkedIn](https://www.linkedin.com/in/alec-johnson-252a09212/) | Backend Admin
-- Todd | [Github](https://github.com/toddpeltzer) | [LinkedIn](https://www.linkedin.com/in/todd-peltzer/) | Frontend - Functinality
+- Todd | [Github](https://github.com/toddpeltzer) | [LinkedIn](https://www.linkedin.com/in/todd-peltzer/) | Frontend - Functionality
 - Troi | [Github](https://github.com/tverg419) | [LinkedIn](https://www.linkedin.com/in/troi-vergara/)  | Database Admin
 - Zavier | [Github](https://github.com/ZavierLowe) | [LinkedIn](https://www.linkedin.com/in/zavierlowe/) | Frontend - Styling
 
